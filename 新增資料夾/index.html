@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>壹伍 ｜非犬貓旅宿 ｜ 特寵用品</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* === 壹伍品牌色：莫蘭迪粉棕色系 === */
+            --brand-main: #BC9F97;  /* 主色：乾燥玫瑰粉棕 */
+            --brand-dark: #8E6F65;  /* 深色：可可棕 (按鈕懸停用) */
+            --text-dark: #5A4A42;   /* 文字：深褐色 */
+            --text-light: #FFFFFF;  /* 文字：白 */
+            --bg-light: #F9F7F6;    /* 背景：米白 */
+            --accent-green: #8FA692; /* 點綴色：莫蘭迪綠 (代表自然/草食動物) */
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* === 導覽列 (Navbar) === */
+        .navbar {
+            background-color: var(--brand-main) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #fff !important;
+            letter-spacing: 2px;
+        }
+        
+        .navbar-brand span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-left: 5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255, 0.95) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #fff !important;
+            opacity: 0.8;
+        }
+
+        /* === 按鈕樣式 === */
+        .btn-brand {
+            background-color: #fff;
+            color: var(--brand-main);
+            border-radius: 50px;
+            padding: 8px 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-brand:hover {
+            background-color: var(--brand-dark);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-brand {
+            border: 2px solid var(--brand-main);
+            color: var(--brand-main);
+            border-radius: 50px;
+            padding: 8px 30px;
+            font-weight: 600;
+        }
+
+        .btn-outline-brand:hover {
+            background-color: var(--brand-main);
+            color: #fff;
+        }
+
+        /* === 首頁大圖 (Hero) === */
+        .hero-section {
+            position: relative;
+            height: 85vh;
+            /* 這裡使用一張兔子/自然的圖片作為背景，你可以換成自己的照片 */
+            background: url('https://images.unsplash.com/photo-1585110396065-88b724194098?q=80&w=2574&auto=format&fit=crop') center/cover no-repeat;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(90, 74, 66, 0.4); /* 讓圖片變暗一點，文字才清楚 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            color: white;
+            font-size: 3.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* === 區塊通用設定 === */
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title span {
+            color: var(--brand-main);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .section-title h2 {
+            color: var(--text-dark);
+            font-size: 2.2rem;
+        }
+
+        /* === 服務卡片 === */
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            height: 100%;
+            border: none;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(188, 159, 151, 0.3);
+        }
+
+        .service-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .service-body {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .feature-icon-box {
+            width: 80px;
+            height: 80px;
+            background-color: var(--brand-main);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px auto;
+        }
+
+        /* === 頁尾 (Footer) === */
+        footer {
+            background-color: var(--brand-main);
+            color: white;
+            padding-top: 60px;
+            padding-bottom: 30px;
+        }
+        footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: white;
+        }
+
+        /* 手機版調整 */
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 2rem; }
+            .hero-text p { font-size: 1rem; }
+        }
+        /* === 新增樣式：價目表 (Price) === */
+        .price-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .price-table thead {
+            background-color: var(--brand-main);
+            color: white;
+        }
+        .price-table th {
+            padding: 15px;
+            font-weight: 500;
+            border: none;
+        }
+        .price-table td {
+            padding: 15px;
+            color: var(--text-dark);
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+        .price-note {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(188, 159, 151, 0.1); /* 淡淡的品牌色背景 */
+            border-radius: 10px;
+        }
+
+        /* === 新增樣式：常見問題 (Accordion) === */
+        .accordion-item {
+            border: none;
+            margin-bottom: 15px;
+            border-radius: 10px !important;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+        .accordion-button {
+            color: var(--text-dark);
+            font-weight: 600;
+            background-color: white;
+        }
+        .accordion-button:not(.collapsed) {
+            color: var(--brand-dark);
+            background-color: rgba(188, 159, 151, 0.1); /* 展開時的背景色 */
+            box-shadow: none;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(188, 159, 151, 0.5);
+        }
+        .accordion-body {
+            color: #666;
+            line-height: 1.7;
+        }
+/* === 側邊浮動社群選單 (樣式與頁尾一致版) === */
+        .floating-social {
+            position: fixed;
+            right: 15px;      /* 距離右邊螢幕的邊界 */
+            top: 50%;         /* 垂直置中 */
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;        /* 按鈕之間的間距，微調以適應新形狀 */
+            z-index: 1040;    /* 確保浮在最上層 */
+        }
+        
+        .floating-social .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px; /* 🛑 🛑 從圓形改為圓角方形，與頁尾一致 🛑 🛑 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;        /* 圖示顏色 */
+            text-decoration: none;
+            font-size: 1.5rem;
+            background-color: var(--brand-main); /* 🛑 🛑 🛑 🛑 🛑 使用統一的莫蘭迪粉棕色背景 🛑 🛑 🛑 🛑 🛑 */
+            /* 用戶追求「漂亮」，頁尾截圖沒有陰影和懸停效果，所以我移除它們以保持一致性。 */
+            transition: all 0.3s ease;
+        }
+        
+        /* 🛑🛑 請務必刪除這一段，因為現在不需要個別顏色了！🛑🛑 */
+        /* .floating-social .fb { ... } .floating-social .ig { ... } .floating-social .map { ... } .floating-social .line { ... } */
+        /* 🛑🛑 上面這段個別顏色請務必刪除！🛑🛑 */
+
+        /* 滑鼠移過去時會有細微的透明度變化，保持靜態優雅感 */
+        .floating-social .social-btn:hover {
+            opacity: 0.8;
+            /* 🛑🛑 強烈的懸停放大效果已被移除 🛑🛑 */
+        }
+        
+        /* 手機版微調：稍微縮小，避免佔據太多手機螢幕空間 */
+        @media (max-width: 767px) {
+            .floating-social {
+                right: 10px;
+                top: 65%; /* 手機上稍微往下挪一點，避免擋住中間內容 */
+            }
+            .floating-social .social-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                border-radius: 8px; /* 手機上縮小圓角 */
+            }
+        }
+/* === 手機版專屬：底部固定導覽列 === */
+        .mobile-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 1050;
+            /* 針對 iPhone 底部黑線的安全距離設定 */
+            padding-bottom: calc(10px + env(safe-area-inset-bottom)); 
+        }
+        
+        .mobile-bottom-nav .nav-item {
+            text-align: center;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            width: 25%; /* 均分 4 個按鈕 */
+        }
+        
+        .mobile-bottom-nav .nav-item i {
+            font-size: 1.4rem;
+            color: var(--brand-main);
+        }
+        
+        .mobile-bottom-nav .nav-item:hover,
+        .mobile-bottom-nav .nav-item:active {
+            color: var(--brand-dark);
+        }
+
+        /* 當螢幕小於 768px (手機版) 時，讓網頁最底部留白，以免內容被底部列擋住 */
+        @media (max-width: 767px) {
+            body {
+                padding-bottom: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+      
+    <div class="floating-social">
+        <a href="https://www.facebook.com/share/1HYyhoLmah/?mibextid=wwXIfr" target="_blank" class="social-btn" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        
+        <a href="https://www.instagram.com/15exoticcare?igsh=bnNnNXpqdjMzNjNv&utm_source=qr" target="_blank" class="social-btn" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        
+        <a href="https://maps.app.goo.gl/ft476ZM81WFpoGGu8" target="_blank" class="social-btn" title="Google 地圖">
+            <i class="fas fa-map-marker-alt"></i>
+        </a>
+        
+        <a href="https://line.me/R/ti/p/@903dmtve" target="_blank" class="social-btn" title="LINE 預約">
+            <i class="fab fa-line"></i>
+        </a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-paw me-2"></i>壹伍 <span>非犬貓旅宿 ｜ 特寵用品</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#about">關於壹伍</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#rooms">住宿環境</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">照護特色</a></li>
+                    <li class="nav-item"><a class="nav-link" href="price.html" target="_blank">收費標準</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="rules.html" target="_blank">入住須知</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="shop.html" target="_blank">特寵用品</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">預約入住</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-overlay">
+            <div class="container hero-text">
+                <h1>給毛孩最溫柔的第二個家</h1>
+                <p>專注於 兔兔、天竺鼠、鸚鵡 與 特殊寵物<br>沒有貓狗的叫聲，只有舒適與安心</p>
+                <a href="#rooms" class="btn btn-brand btn-lg mt-3 px-5 py-3">查看房型</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1591382696684-38c427c7547a?q=80&w=2670&auto=format&fit=crop" class="img-fluid rounded-3 shadow" alt="照顧寵物">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <div class="section-title text-start mb-4">
+                        <span>About YiWu</span>
+                        <h2>懂牠們，因為我們也是家人</h2>
+                    </div>
+                    <p>「壹伍」的名字，來自於鸚鵡與天竺鼠的聲音連結，也代表著我們對這些小動物的熱愛。</p>
+                    <p>我們知道，非犬貓寵物需要極其細膩的環境控制與照護。這裡**沒有貓狗的吠叫聲與氣味壓力**，只有為草食動物與鳥類量身打造的恆溫空間。</p>
+                    <p>無論是需要放風奔跑的兔兔，還是需要站架陪伴的鸚鵡，我們都準備好了。</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 全天候恆溫除濕</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 24小時遠端攝影監控</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 每日回報健康狀況</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rooms" class="section-padding" style="background-color: #EEEAE8;">
+        <div class="container">
+            <div class="section-title">
+                <span>Rooms</span>
+                <h2>專屬舒適空間</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2688&auto=format&fit=crop" class="service-img" alt="兔兔住宿">
+                        <div class="service-body">
+                            <h4>兔兔與天竺鼠 Villa</h4>
+                            <p class="text-muted mt-3">提供平面的大空間，鋪設防滑墊與舒適草窩，每日安排放風時間，讓寶貝盡情奔跑。</p>
+                            <span class="badge bg-secondary">含牧草</span>
+                            <span class="badge bg-secondary">含放風</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1620662660233-0c464c8d1976?q=80&w=2670&auto=format&fit=crop" class="service-img" alt="鸚鵡住宿">
+                        <div class="service-body">
+                            <h4>鸚鵡與鳥類套房</h4>
+                            <p class="text-muted mt-3">專屬的鳥類住宿區，提供各式站架與玩具。我們了解不同鳥種的習性，給予最貼心的陪伴。</p>
+                            <span class="badge bg-secondary">可自備籠</span>
+                            <span class="badge bg-secondary">互動陪伴</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?q=80&w=2671&auto=format&fit=crop" class="service-img" alt="倉鼠住宿">
+                        <div class="service-body">
+                            <h4>倉鼠與特寵區</h4>
+                            <p class="text-muted mt-3">針對倉鼠、刺蝟、爬蟲類等特殊寵物，提供安靜且溫控的獨立空間，不受干擾。</p>
+                            <span class="badge bg-secondary">溫度控制</span>
+                            <span class="badge bg-secondary">專屬照護</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <span>Why Choose Us</span>
+                <h2>為什麼選擇壹伍？</h2>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h5>24H 遠端監控</h5>
+                    <p class="text-muted small">主人隨時可用手機查看寶貝狀況，出遠門更安心。</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <h5>恆溫恆濕環境</h5>
+                    <p class="text-muted small">針對特寵需求，全天候控制溫濕度，配備空氣清淨機。</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h5>專業愛心褓姆</h5>
+                    <p class="text-muted small">擁有豐富的非犬貓飼養經驗，懂得觀察細微的健康變化。</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h5>每日生活紀錄</h5>
+                    <p class="text-muted small">每天傳送寶貝吃飯、放風的照片，讓思念零距離。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <section id="faq" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <span>Q & A</span>
+                <h2>常見問題</h2>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="accordionExample">
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    Q1. 入住跟退房的時間是幾點？
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    我們的營業時間為 <strong>10:00 - 20:00</strong>。最早入住時間為 10:30，最晚退房時間為 19:30。若需提早或延後（安親服務），將酌收超時費用 $100/小時。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    Q2. 我需要自備飼料或牧草嗎？
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>強烈建議自備飼料！</strong> 因為特寵的腸胃較敏感，突然更換飼料容易造成軟便或拒食。我們會提供基本的提摩西牧草（二割），若您的寶貝有特定的牧草喜好（如苜蓿草、一割），請務必自行攜帶。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    Q3. 住宿期間如果寵物生病了怎麼辦？
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    若發現寵物有食慾不振、精神變差等異常狀況，我們會立即通知您。若情況緊急且無法聯繫上您，我們會優先將寵物送至我們配合的<strong>特寵專科醫院</strong>就診，醫療與車馬費用將實報實銷。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    Q4. 鸚鵡需要做病毒檢驗嗎？
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    為了保障所有住宿鳥寶的安全，<strong>鸚鵡入住前需出示一年內的雙病毒（PBFD、APV）陰性檢驗報告</strong>。若無檢驗報告，我們僅能提供完全隔離的單獨房型（數量有限），且無法進行公共區域的放風互動。
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5" style="background-color: var(--brand-dark); color: white;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-3">準備好讓寶貝度假了嗎？</h2>
+                    <p class="mb-4" style="opacity: 0.8;">由於房間數量有限，為了確保每位小客人的照顧品質，請務必提前預約參觀或入住。</p>
+                    <div class="d-flex flex-wrap gap-4">
+                        <div><i class="fas fa-map-marker-alt me-2"></i> 新北市泰山區莊泰路1627號 (近機捷A5)</div>
+                        <div><i class="fas fa-clock me-2"></i> 10:00 - 20:00 (預約制)</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                    <a href="https://line.me/R/ti/p/@903dmtve" target="_blank" class="btn btn-light btn-lg rounded-pill px-5 text-dark fw-bold">
+                        <i class="fab fa-line me-2" style="color: #00B900;"></i> 加 Line 預約
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="mb-3">壹伍</h4>
+                    <p class="small" style="opacity: 0.7;">壹伍暗示著鸚鵡，倒著唸又像天竺鼠的叫聲。我們是專屬於非犬貓寵物的精品旅館。</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">快速連結</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#about"> > 關於我們</a></li>
+                        <li><a href="#rooms"> > 住宿房型</a></li>
+                        <li><a href="#faq"> > 常見問題</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">關注我們</h5>
+                    <div>
+                        <a href="https://www.facebook.com/share/1HYyhoLmah/?mibextid=wwXIfr" target="_blank" class="me-3 fs-4"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/15exoticcare?igsh=bnNnNXpqdjMzNjNv&utm_source=qr" target="_blank" class="me-3 fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="https://line.me/R/ti/p/@903dmtve" target="_blank" class="me-3 fs-4"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 text-center small" style="opacity: 0.6;">
+                <p>&copy; 2026 壹伍非犬貓寵物旅宿 15 Exotic Animal Hotel</p>
+               <p>壹伍企業社｜統一編號:61245869</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<div class="mobile-bottom-nav d-md-none">
+        
+        <a href="price.html" class="nav-item">
+            <i class="fas fa-hand-holding-dollar"></i>
+            <span>收費標準</span>
+        </a>
+
+        <a href="rules.html" class="nav-item">
+            <i class="fas fa-clipboard-list"></i>
+            <span>入住須知</span>
+        </a>
+
+        <a href="shop.html" class="nav-item">
+            <i class="fas fa-shopping-bag"></i>
+            <span>特寵用品</span>
+        </a>
+
+        <a href="#contact" class="nav-item">
+            <i class="fab fa-line" style="color: #00B900;"></i>
+            <span>預約入住</span>
+        </a>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>房型與收費｜壹伍非犬貓旅宿I特寵用品</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-main: #BC9F97;   /* 主色：莫蘭迪粉棕 */
+            --brand-dark: #8E6F65;   /* 深色 */
+            --brand-light: #EBE4E2;  /* 淺底色 */
+            --text-dark: #5A4A42;    /* 文字色 */
+            --bg-body: #F5F3F1;      /* 網頁背景色 */
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-body);
+            line-height: 1.8;
+            padding-top: 40px;
+            padding-bottom: 60px;
+        }
+
+        /* === 標題 === */
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .page-title h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: 2px;
+        }
+
+        /* === 六宮格卡片設計 === */
+        .category-card {
+            background-color: white;
+            border-radius: 24px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(188, 159, 151, 0.2);
+            border: 2px solid var(--brand-main);
+        }
+
+        /* 如果您有剪影圖片，可以把這裡換成 img */
+        .category-icon {
+            font-size: 4rem;
+            color: var(--brand-main);
+            margin-bottom: 20px;
+        }
+
+        .category-name {
+            font-weight: 500;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        /* === 彈出視窗 (Modal) 設計 === */
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+            background-color: #FAFAFA;
+        }
+        .modal-header {
+            border-bottom: none;
+            padding: 20px 30px 0;
+        }
+        .modal-title {
+            color: var(--brand-dark);
+            font-weight: 700;
+            width: 100%;
+            text-align: center;
+        }
+        .btn-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        .modal-body {
+            padding: 30px;
+        }
+
+        /* 房型切換標籤 (Tabs) */
+        .nav-pills {
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+        .nav-pills .nav-link {
+            color: var(--text-dark);
+            background-color: transparent;
+            border: 1px solid var(--brand-main);
+            border-radius: 50px;
+            padding: 8px 25px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-pills .nav-link.active, 
+        .nav-pills .nav-link:hover {
+            background-color: var(--brand-main);
+            color: white;
+        }
+
+        /* 房型圖片與資訊 */
+        .room-image {
+            width: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+            margin-bottom: 20px;
+        }
+        .room-notes {
+            font-size: 0.85rem;
+            color: #777;
+            background: var(--brand-light);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .price-info-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            height: 100%;
+        }
+        .price-row {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 10px;
+        }
+        .price-label {
+            width: 100px;
+            color: #888;
+            font-weight: 500;
+        }
+        .price-value {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <a href="index.html" class="btn btn-sm btn-outline-secondary mb-4" style="border-radius: 50px;">
+            <i class="fas fa-arrow-left me-2"></i>返回首頁
+        </a>
+
+        <div class="page-title">
+            <h1>房型介紹</h1>
+            <p class="text-muted">點擊下方分類，查看詳細房型與收費</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-6 col-md-4">
+                <div class="category-card" data-bs-toggle="modal" data-bs-target="#modalRabbit">
+                    
+                    <i class="fas fa-wheat-awn category-icon mb-4"></i>
+
+                    <p class="category-name" style="line-height: 2;">
+                        <img src="rabbit.png" alt="兔" style="height: 1.5em; vertical-align: text-bottom; margin-right: 4px;">兔子 
+ <br>                       
+                        <img src="guinea-pig.png" alt="天竺鼠" style="height: 1.2em; vertical-align: text-bottom; margin-right: 4px; margin-left: 4px;">天竺鼠 
+ <br>
+                        
+                        <img src="chinchilla.png" alt="龍貓" style="height: 1.5em; vertical-align: middle; margin-right: 4px;">龍貓 
+ <br>
+                        <img src="groundhog.png" alt="土撥鼠" style="height: 1.5em; vertical-align: middle; margin-right: 4px; margin-left: 4px;">土撥鼠
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <div class="category-card" data-bs-toggle="modal" data-bs-target="#modalBird">
+                    <p class="category-name" style="line-height: 2;">
+                        <img src="parrot.png" alt="小型鸚鵡" style="height: 1.2em; vertical-align: middle; margin-right: 4px;">
+                        <img src="parrot2.png" alt="小鸚" style="height: 1.2em; vertical-align: middle; margin-right: 4px;">
+                        小型鸚鵡 
+<br>  
+                        <img src="bird.png" alt="玄鳳" style="height: 1.5em; vertical-align: middle; margin-right: 4px;">
+                        <img src="bird2.png" alt="小太陽" style="height: 1.2em; vertical-align: middle; margin-right: 4px;">
+                        中小型鸚鵡 
+<br>
+                        <img src="bicbird.png" alt="凱克" style="height: 1.2em; vertical-align: middle; margin-right: 4px; margin-left: 4px;">
+                        <img src="bicbird2.png" alt="和尚" style="height: 1.2em; vertical-align: middle; margin-right: 4px; margin-left: 4px;">
+                       中型鸚鵡
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <div class="category-card" data-bs-toggle="modal" data-bs-target="#modalHamster">
+                    <p class="category-name" style="line-height: 2;">
+                        <img src="hamster.png" alt="倉鼠" style="height: 1.2em; vertical-align: middle; margin-right: 4px;">倉鼠 
+<br> 
+                        <img src="hedgehog.png" alt="刺蝟" style="height: 1.2em; vertical-align: middle; margin-right: 4px; margin-left: 4px;">刺蝟
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <div class="category-card" data-bs-toggle="modal" data-bs-target="#modalRat">
+                    <p class="category-name" style="line-height: 2;">
+                        <img src="rat.png" alt="大白鼠" style="height: 1.2em; vertical-align: middle; margin-right: 4px;">大白鼠 
+<br>
+                        <img src="sugar-glider.png" alt="蜜袋鼯" style="height: 1.2em; vertical-align: middle; margin-right: 4px; margin-left: 4px;">蜜袋鼯
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <div class="category-card" data-bs-toggle="modal" data-bs-target="#modalFerret">
+                    <p class="category-name" style="line-height: 2;">
+                        <img src="ferret.png" alt="雪貂" style="height: 1.2em; vertical-align: middle; margin-right: 4px;">雪貂 
+<br>
+                        <img src="meerkat.png" alt="狐獴" style="height: 1.2em; vertical-align: middle; margin-right: 4px; margin-left: 4px;">狐獴
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <div class="category-card" data-bs-toggle="modal" data-bs-target="#modalOther">
+                    <p class="category-name" style="line-height: 2;">
+                        <img src="other-pets.png" alt="其他物種" style="height: 3.2em; vertical-align: middle; margin-right: 4px;">其他物種客製化照護<br>
+                        <span class="small text-muted">(請洽 LINE 諮詢)</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+<div class="modal fade" id="modalRabbit" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">兔 / 天竺鼠 / 龍貓 / 土撥鼠 房型介紹</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-pills" id="rabbitTabs" role="tablist">
+                        <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#rabbit-1">標準平面房</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#rabbit-2">加大寬敞房</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#rabbit-3">豪華挑高房</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#rabbit-4">VIP 放風 Villa</button></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="rabbit-1">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">標準房圖片</div>
+                                    <div class="room-notes mt-3">附飲水盆、便盆、牧草架。提供無限量提摩西二割牧草。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">標準平面房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 500｜假日 600</div></div>
+                                        <div class="price-row"><div class="price-label">尺寸</div><div class="price-value">長 80 x 寬 60 x 高 60 cm</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="rabbit-2">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">加大房圖片</div>
+                                    <div class="room-notes mt-3">適合體型較大的兔寶或土撥鼠，提供更寬敞的轉身空間。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">加大寬敞房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 650｜假日 750</div></div>
+                                        <div class="price-row"><div class="price-label">尺寸</div><div class="price-value">長 100 x 寬 80 x 高 60 cm</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="rabbit-3">
+                           <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">豪華房圖片</div>
+                                    <div class="room-notes mt-3">加高設計，適合喜歡跳躍的龍貓，內附多層跳板與啃咬玩具。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">豪華挑高房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 800｜假日 900</div></div>
+                                        <div class="price-row"><div class="price-label">尺寸</div><div class="price-value">長 100 x 寬 80 x 高 120 cm</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="rabbit-4">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">VIP房圖片</div>
+                                    <div class="room-notes mt-3">擁有專屬豪華放風空間、防滑地墊，適合多隻同住或極度需要活動量的寶貝。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">VIP 放風 Villa</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 1200｜假日 1400</div></div>
+                                        <div class="price-row"><div class="price-label">優惠</div><div class="price-value">同籠第二隻起 +150/日</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalBird" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">鸚鵡 / 鳥類 房型介紹</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-pills" id="birdTabs" role="tablist">
+                        <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#bird-1">小型套房</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#bird-2">中小型舒適房</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#bird-3">中型景觀房</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#bird-4">無障礙特殊照護房</button></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="bird-1">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">小型房圖片</div>
+                                    <div class="room-notes mt-3">適合小鸚、文鳥、虎皮等。入住需出示雙病毒陰性報告。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">小型套房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 300｜假日 350</div></div>
+                                        <div class="price-row"><div class="price-label">自備籠</div><div class="price-value">每日折抵 50 元</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="bird-2">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">中小型房圖片</div>
+                                    <div class="room-notes mt-3">適合綠頰錐尾、玄鳳、和尚等。提供豐富啃咬玩具與棲木。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">中小型舒適房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 450｜假日 550</div></div>
+                                        <div class="price-row"><div class="price-label">放風</div><div class="price-value">含專屬站架互動時間</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="bird-3">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">中型房圖片</div>
+                                    <div class="room-notes mt-3">適合凱克、塞內加爾、灰鸚等。需提前評估籠舍強度。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">中型景觀房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 600起｜假日 700起</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="bird-4">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">無障礙房圖片</div>
+                                    <div class="room-notes mt-3">提供平緩站板與無障礙空間。<strong>我們極具特殊照護經驗，非常歡迎需要特殊照護（如單腳、行動不便）的鳥寶入住，將為其客製化環境。</strong></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">無障礙特殊照護房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">請加 Line 討論報價</div></div>
+                                        <div class="price-row"><div class="price-label">特色</div><div class="price-value">低底盤、軟墊防護、加強觀察</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalHamster" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">倉鼠 / 刺蝟 房型介紹</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-pills" id="hamsterTabs" role="tablist">
+                        <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#hamster-1">自備籠位</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#hamster-2">標準溫控艙</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#hamster-3">加大別墅艙</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#hamster-4">高齡照護艙</button></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="hamster-1">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">自備籠圖片</div>
+                                    <div class="room-notes mt-3">由主人準備習慣的籠子與墊材，我們提供最安靜穩定的溫濕度環境，將環境轉換壓力降到最低。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">自備籠位</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 150｜假日 200</div></div>
+                                        <div class="price-row"><div class="price-label">限制</div><div class="price-value">籠子長寬需小於 60x40 cm</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="hamster-2">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">標準艙圖片</div>
+                                    <div class="room-notes mt-3">提供基礎躲避屋、滾輪與飲水器，每日清潔墊材。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">標準溫控艙</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 250｜假日 300</div></div>
+                                        <div class="price-row"><div class="price-label">尺寸</div><div class="price-value">長 60 x 寬 40 x 高 40 cm</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="hamster-3">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">別墅艙圖片</div>
+                                    <div class="room-notes mt-3">適合活動量大的黃金鼠或刺蝟，可放置 30cm 以上大滾輪與豐富造景。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">加大別墅艙</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 350｜假日 400</div></div>
+                                        <div class="price-row"><div class="price-label">尺寸</div><div class="price-value">長 80 x 寬 50 x 高 50 cm</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="hamster-4">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">高齡照護圖片</div>
+                                    <div class="room-notes mt-3">移除所有高低差與二樓設計，全平面鋪設厚軟墊材，設置溫和加溫燈，適合高齡或行動不便的小型特寵。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">高齡照護艙</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 400｜假日 450</div></div>
+                                        <div class="price-row"><div class="price-label">特色</div><div class="price-value">無障礙設計、加強健康觀察</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalRat" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">大白鼠 / 蜜袋鼯 房型介紹</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-pills" id="ratTabs" role="tablist">
+                        <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#rat-1">基礎平面籠</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#rat-2">立體攀爬房</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#rat-3">雙拼豪華大籠</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#rat-4">群居專屬房</button></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="rat-1">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">基礎籠圖片</div>
+                                    <div class="room-notes mt-3">適合單獨飼養、不便攀爬的高齡大白鼠，提供安穩休息的平面空間。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">基礎平面籠</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 250｜假日 300</div></div>
+                                        <div class="price-row"><div class="price-label">數量</div><div class="price-value">限 1 隻</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="rat-2">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">攀爬房圖片</div>
+                                    <div class="room-notes mt-3">針對喜歡攀爬的蜜袋鼯設計，提供高挑籠舍、柔軟吊床與樹藤攀爬梯。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">立體攀爬房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 350｜假日 450</div></div>
+                                        <div class="price-row"><div class="price-label">尺寸</div><div class="price-value">高度達 80 cm</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="rat-3">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">豪華籠圖片</div>
+                                    <div class="room-notes mt-3">極大的長寬高立體空間，可放置主人帶來的多樣玩具與大型滾輪，讓寶貝零壓力度假。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">雙拼豪華大籠</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 500｜假日 600</div></div>
+                                        <div class="price-row"><div class="price-label">加隻</div><div class="price-value">同籠第二隻起 +100/日</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="rat-4">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">群居房圖片</div>
+                                    <div class="room-notes mt-3">專為 3 隻以上的大家族準備！擁有無敵大空間與多個躲避處，不用擔心彼此擁擠。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">群居專屬房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 700｜假日 800</div></div>
+                                        <div class="price-row"><div class="price-label">數量</div><div class="price-value">含 3 隻，第4隻起+50/日</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalFerret" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">雪貂 / 狐獴 房型介紹</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-pills" id="ferretTabs" role="tablist">
+                        <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#ferret-1">標準休息房</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#ferret-2">加大活動房</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#ferret-3">管狀隧道房</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#ferret-4">VIP 遊戲大平層</button></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="ferret-1">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">標準房圖片</div>
+                                    <div class="room-notes mt-3">提供溫暖舒適的暗角與厚毯子，讓嗜睡的雪貂有滿滿安全感。定時安排放風。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">標準休息房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 400｜假日 500</div></div>
+                                        <div class="price-row"><div class="price-label">限制</div><div class="price-value">適合單隻入宿</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="ferret-2">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">加大房圖片</div>
+                                    <div class="room-notes mt-3">給予更充裕的伸展空間，可放置專屬大貓砂盆與互動玩具。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">加大活動房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 550｜假日 650</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="ferret-3">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">隧道房圖片</div>
+                                    <div class="room-notes mt-3">結合雪貂與狐獴愛鑽洞的天性！房內特別設置管狀隧道與多層大吊床，豐富環境。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">管狀隧道房</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 700｜假日 800</div></div>
+                                        <div class="price-row"><div class="price-label">特色</div><div class="price-value">豐富化環境設計</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="ferret-4">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: #e9ecef; width: 100%; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999;">VIP大平層圖片</div>
+                                    <div class="room-notes mt-3">獨享極大平面活動區！對於需要挖掘（狐獴）或跑跳（雪貂）的寶貝，提供無壓力的頂級住宿體驗。</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="price-info-box">
+                                        <h5 class="mb-4 text-brand-dark fw-bold">VIP 遊戲大平層</h5>
+                                        <div class="price-row"><div class="price-label">平假日</div><div class="price-value">平日 1000｜假日 1200</div></div>
+                                        <div class="price-row"><div class="price-label">加隻</div><div class="price-value">同籠第二隻起 +200/日</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalOther" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">其他物種 客製化照護</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-pills" id="otherTabs" role="tablist">
+                        <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#other-1">爬蟲兩棲類</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#other-2">節肢動物</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#other-3">安寧照護</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#other-4">醫療復健支援</button></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="other-1"><div class="p-4 text-center"><h5>爬蟲兩棲類</h5><p>可自備 UVB 燈與溫控設備，價格另議</p></div></div>
+                        <div class="tab-pane fade" id="other-2"><div class="p-4 text-center"><h5>節肢動物</h5><p>請洽 Line 確認是否可收容</p></div></div>
+                        <div class="tab-pane fade" id="other-3"><div class="p-4 text-center"><h5>安寧照護</h5><p>針對老弱病殘特寵，提供高頻率巡視與餵藥服務</p></div></div>
+                        <div class="tab-pane fade" id="other-4"><div class="p-4 text-center"><h5>醫療復健支援</h5><p>依照醫師指示進行傷口護理與特殊灌食</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
