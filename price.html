@@ -140,8 +140,9 @@
         .room-gallery::-webkit-scrollbar { height: 4px; }
         .room-gallery::-webkit-scrollbar-thumb { background-color: rgba(188,159,151,0.4); border-radius: 10px; }
         .gallery-img, .gallery-placeholder {
-            flex: 0 0 92%; 
-            aspect-ratio: 4/3;
+            flex: 0 0 88%; /* 讓照片稍微變窄一點點，剛好可以露出下一張照片的邊邊，提示客人可以滑動 */
+            aspect-ratio: 16 / 9; /* 把原本偏正方形的 4/3 改成寬螢幕比例，高度會大幅降低 */
+            max-height: 220px; /* 🌟 加上這行大絕招！強制限制最高高度，電腦版上絕對不會再放到太大 */
             object-fit: cover;
             border-radius: 16px;
             scroll-snap-align: center;
