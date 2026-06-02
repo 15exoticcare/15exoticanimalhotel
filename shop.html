@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>嚴選用品｜壹伍非犬貓旅宿I特寵用品</title>
+
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHWWFHPP3N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KHWWFHPP3N');
+    </script>
+    </head>
+
+    <style>
+        :root {
+            --brand-main: #BC9F97;   /* 主色：莫蘭迪粉棕 */
+            --brand-dark: #8E6F65;   /* 深色 */
+            --brand-light: #EBE4E2;  /* 淺底色 */
+            --text-dark: #5A4A42;    /* 文字色 */
+            --text-muted: #8c7d77;
+            --bg-body: #FAFAF8;      /* 質感紙張背景色 */
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-body);
+            line-height: 1.8;
+            padding-top: 30px;
+            padding-bottom: 80px;
+        }
+
+        /* === 頂部標題 === */
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .page-title h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--brand-dark);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .page-title p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+
+        /* === 🌟 質感分類標籤 (Filter Nav) 🌟 === */
+        .filter-nav-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1020;
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(188, 159, 151, 0.2);
+        }
+        .filter-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 5px;
+        }
+        .filter-nav::-webkit-scrollbar { display: none; }
+        
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--brand-main);
+            color: white;
+            box-shadow: 0 4px 12px rgba(188, 159, 151, 0.3);
+        }
+
+        /* 手機版靠左對齊方便滑動 */
+        @media (max-width: 768px) {
+            .filter-nav {
+                justify-content: flex-start;
+                padding: 0 15px 5px 15px;
+            }
+        }
+
+        /* === 🌟 精品商品卡片 (Product Card) 🌟 === */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: transparent;
+            border: none;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* 商品圖展示區 */
+        .img-wrapper {
+            position: relative;
+            background-color: #f4f4f4; /* 高級灰底 */
+            border-radius: 20px;
+            aspect-ratio: 1 / 1; /* 完美正方形比例 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .img-wrapper img {
+            transform: scale(1.05); /* 滑鼠游標移過去時微微放大 */
+        }
+
+        /* 標籤 (例如：店長推薦) */
+        .badge-premium {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--brand-dark);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        /* 商品資訊區 */
+        .product-info {
+            padding: 0 5px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .product-brand {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--brand-dark);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #C05A50;
+            margin-bottom: 15px;
+        }
+
+        /* 預留按鈕 */
+        .btn-reserve {
+            margin-top: auto; /* 把按鈕推到最底 */
+            width: 100%;
+            background: white;
+            color: var(--brand-main);
+            border: 1.5px solid var(--brand-main);
+            padding: 10px 0;
+            border-radius: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        .btn-reserve:hover {
+            background: var(--brand-main);
+            color: white;
+        }
+        .btn-reserve i {
+            margin-right: 6px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <a href="index.html" class="btn btn-sm btn-outline-secondary mb-4" style="border-radius: 50px;">
+            <i class="fas fa-arrow-left me-2"></i>返回首頁
+        </a>
+
+        <div class="page-title">
+            <h1>壹伍選物</h1>
+            <p>只為寶貝提供最安心、最優質的日常所需</p>
+        </div>
+    </div>
+
+    <div class="filter-nav-wrapper">
+        <div class="container">
+            <div class="filter-nav">
+                <button class="filter-btn active" onclick="filterItems('all')">全部商品</button>
+                <button class="filter-btn" onclick="filterItems('food')">主食與牧草</button>
+                <button class="filter-btn" onclick="filterItems('snack')">零食與保健</button>
+                <button class="filter-btn" onclick="filterItems('toy')">玩具與豐富化</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="product-grid" id="productGrid">
+
+            <div class="product-card item-food">
+                <div class="img-wrapper">
+                    <span class="badge-premium">店長推薦</span>
+                    <img src="shop1.jpg" onerror="this.src='https://via.placeholder.com/400x400/EBE4E2/8E6F65?text=商品照片準備中'" alt="商品圖片">
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">OXBOW / 提摩西</div>
+                    <h3 class="product-title">精選特級二割提摩西牧草 (特級軟葉)</h3>
+                    <div class="product-price">NT$ 待更新</div>
+                    <button class="btn-reserve" onclick="window.open('https://lin.ee/9hnhjz3', '_blank')">
+                        <i class="fab fa-line"></i>LINE 預留 / 詢問
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card item-snack">
+                <div class="img-wrapper">
+                    <img src="shop2.jpg" onerror="this.src='https://via.placeholder.com/400x400/EBE4E2/8E6F65?text=商品照片準備中'" alt="商品圖片">
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">嚴選天然果乾</div>
+                    <h3 class="product-title">無添加綜合草莓蘋果凍乾手作零食</h3>
+                    <div class="product-price">NT$ 待更新</div>
+                    <button class="btn-reserve" onclick="window.open('https://lin.ee/9hnhjz3', '_blank')">
+                        <i class="fab fa-line"></i>LINE 預留 / 詢問
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card item-toy">
+                <div class="img-wrapper">
+                    <span class="badge-premium">熱銷</span>
+                    <img src="shop3.jpg" onerror="this.src='https://via.placeholder.com/400x400/EBE4E2/8E6F65?text=商品照片準備中'" alt="商品圖片">
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">鳥寶專屬</div>
+                    <h3 class="product-title">天然安全啃咬索拉球/手工原木破壞串</h3>
+                    <div class="product-price">NT$ 待更新</div>
+                    <button class="btn-reserve" onclick="window.open('https://lin.ee/9hnhjz3', '_blank')">
+                        <i class="fab fa-line"></i>LINE 預留 / 詢問
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card item-food">
+                <div class="img-wrapper">
+                    <img src="shop4.jpg" onerror="this.src='https://via.placeholder.com/400x400/EBE4E2/8E6F65?text=商品照片準備中'" alt="商品圖片">
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">Mazuri</div>
+                    <h3 class="product-title">鸚鵡專業滋養丸 (中小型適用)</h3>
+                    <div class="product-price">NT$ 待更新</div>
+                    <button class="btn-reserve" onclick="window.open('https://lin.ee/9hnhjz3', '_blank')">
+                        <i class="fab fa-line"></i>LINE 預留 / 詢問
+                    </button>
+                </div>
+            </div>
+
+            </div>
+    </div>
+
+    <script>
+        function filterItems(category) {
+            // 切換按鈕的顏色狀態
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // 顯示或隱藏商品
+            const items = document.querySelectorAll('.product-card');
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.style.display = 'flex';
+                } else {
+                    if (item.classList.contains('item-' + category)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
