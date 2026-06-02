@@ -18,7 +18,8 @@
             --brand-dark: #8E6F65;   /* 深色 */
             --brand-light: #EBE4E2;  /* 淺底色 */
             --text-dark: #5A4A42;    /* 文字色 */
-            --bg-body: #F9F7F6;      /* 背景色 */
+            --text-muted: #8c7d77;
+            --bg-body: #FAFAF8;      /* 更柔和的紙張背景色 */
         }
 
         body {
@@ -26,489 +27,594 @@
             color: var(--text-dark);
             background-color: var(--bg-body);
             line-height: 1.8;
-            scroll-behavior: smooth;
+            position: relative;
         }
 
-        /* 導覽列 */
-        .rules-nav {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            padding: 10px 0;
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        /* === 頂部 Header === */
+        .top-header {
+            background-color: transparent;
+            padding: 30px 0 10px 0;
+            border-bottom: 1px solid rgba(188, 159, 151, 0.2);
+            margin-bottom: 40px;
+        }
+
+        /* === 🌟 側邊懸浮目錄 (Desktop) 🌟 === */
+        .sidebar-nav {
+            position: sticky;
+            top: 40px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+        
+        .sidebar-nav::-webkit-scrollbar { width: 4px; }
+        .sidebar-nav::-webkit-scrollbar-thumb { background-color: var(--brand-light); border-radius: 10px; }
+
+        .index-link {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+        .index-link:hover, .index-link.active {
+            color: var(--brand-dark);
+            border-left-color: var(--brand-main);
+            background-color: rgba(188, 159, 151, 0.05);
+            font-weight: 700;
+        }
+
+        /* === 🌟 手機版頂部滑動目錄 (Mobile) 🌟 === */
+        .mobile-nav-wrapper {
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 1020;
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(188, 159, 151, 0.2);
+            padding: 10px 0;
+            margin-bottom: 30px;
+            display: none; /* 電腦版隱藏 */
         }
-
-        .nav-link {
-            color: var(--text-dark);
+        .mobile-nav {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .mobile-nav::-webkit-scrollbar { display: none; }
+        .mobile-chip {
+            white-space: nowrap;
+            color: var(--text-muted);
             font-size: 0.9rem;
             font-weight: 500;
-            white-space: nowrap;
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 50px;
+            border: 1px solid transparent;
         }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--brand-main);
-        }
-
-        /* 區塊設定 */
-        .section-padding {
-            padding: 60px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .heading-title {
+        .mobile-chip.active {
             color: var(--brand-dark);
+            border-color: var(--brand-main);
+            background-color: rgba(188, 159, 151, 0.05);
+        }
+
+        /* === 🌟 章節排版設計 🌟 === */
+        .chapter-section {
+            margin-bottom: 80px;
+            padding-bottom: 40px;
+            border-bottom: 1px dashed rgba(188, 159, 151, 0.3);
+        }
+        .chapter-section:last-child {
+            border-bottom: none;
+        }
+
+        .chapter-title {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 30px;
+        }
+        .chapter-num {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--brand-main);
+            opacity: 0.4;
+            line-height: 0.8;
+            margin-right: 15px;
+            font-family: serif;
+        }
+        .chapter-name {
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 25px;
+            color: var(--brand-dark);
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .fw-700 { font-weight: 700; }
+        .text-brand { color: var(--brand-dark); }
+        ul.custom-list { padding-left: 1.2rem; }
+        ul.custom-list li { margin-bottom: 8px; }
+
+        /* === 線框提示盒 (取代厚重色塊) === */
+        .outline-box {
+            position: relative;
+            border: 1.5px solid var(--brand-light);
+            border-radius: 12px;
+            padding: 25px 25px 20px;
+            margin: 35px 0 20px 0;
+            background: white;
+        }
+        .outline-box.danger {
+            border-color: rgba(220, 53, 69, 0.3);
+            background: #FFFCFC;
+        }
+        .outline-title {
+            position: absolute;
+            top: -14px;
+            left: 20px;
+            background: white;
+            padding: 0 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--brand-dark);
             display: flex;
             align-items: center;
+            gap: 8px;
+        }
+        .outline-box.danger .outline-title {
+            background: #FFFCFC;
+            color: #dc3545;
         }
 
-        .heading-title::before {
-            content: "";
-            display: inline-block;
-            width: 5px;
-            height: 24px;
-            background-color: var(--brand-main);
-            margin-right: 12px;
-            border-radius: 10px;
+        /* === 優雅的折扣標籤 === */
+        .discount-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
         }
-
-        .content-card {
+        .discount-ticket {
+            display: flex;
+            align-items: center;
             background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            height: 100%;
-        }
-
-        .important-note {
-            background-color: var(--brand-light);
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid var(--brand-main);
-            margin-top: 20px;
-        }
-
-        .text-brand { color: var(--brand-main); }
-        .fw-700 { font-weight: 700; }
-
-        /* 折扣表格樣式 */
-        .discount-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .discount-item {
             border: 1px solid var(--brand-light);
-            text-align: center;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
-        .discount-day { background: var(--brand-light); padding: 5px; font-size: 0.8rem; }
-        .discount-off { padding: 10px; font-weight: 700; color: var(--brand-dark); }
+        .ticket-day {
+            background: rgba(188, 159, 151, 0.1);
+            color: var(--brand-dark);
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-right: 1px dashed var(--brand-light);
+        }
+        .ticket-off {
+            padding: 8px 15px;
+            font-weight: 700;
+            color: var(--brand-dark);
+        }
 
-        @media (max-width: 768px) {
-            .nav-scroll {
-                overflow-x: auto;
-                display: flex;
-            }
+        /* RWD 設定 */
+        @media (max-width: 991px) {
+            .mobile-nav-wrapper { display: block; }
+            .top-header { padding: 15px 0; margin-bottom: 0; border: none; }
+            .chapter-num { font-size: 2rem; }
+            .chapter-name { font-size: 1.3rem; }
+            .chapter-section { margin-bottom: 50px; padding-bottom: 30px; }
         }
     </style>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#rules-nav">
+<body data-bs-spy="scroll" data-bs-target="#sidebar-menu" data-bs-offset="120">
 
-    <div class="rules-nav" id="rules-nav">
+    <!-- 頂部返回按鈕區 -->
+    <div class="top-header">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="index.html" class="text-decoration-none text-brand fw-700" style="color:var(--brand-main);">
+                <i class="fas fa-chevron-left me-2"></i>返回首頁
+            </a>
+            <h5 class="mb-0 fw-700 text-brand">入住須知手冊</h5>
+            <div style="width: 80px;"></div>
+        </div>
+    </div>
+
+    <!-- 手機版滑動目錄 -->
+    <div class="mobile-nav-wrapper">
         <div class="container">
-            <div class="d-flex align-items-center justify-content-between mb-2">
-                <a href="index.html" class="text-decoration-none text-brand fw-700"><i class="fas fa-chevron-left me-1"></i> 返回首頁</a>
-                <h5 class="mb-0 fw-700">壹伍 入住須知</h5>
-                <div style="width: 80px;"></div>
-            </div>
-            <nav class="nav nav-scroll justify-content-md-center">
-                <a class="nav-link" href="#checkin">入退房</a>
-                <a class="nav-link" href="#airing">放風</a>
-                <a class="nav-link" href="#payment">收費</a>
-                <a class="nav-link" href="#cancel">取消政策</a>
-                <a class="nav-link" href="#discount">優惠</a>
-                <a class="nav-link" href="#health">健康醫療</a>
-                <a class="nav-link" href="#abandon">棄養預防</a>
-                <a class="nav-link" href="#video">視訊</a>
-                <a class="nav-link" href="#other">其他</a>
+            <nav class="mobile-nav" id="mobile-menu">
+                <a class="mobile-chip" href="#checkin">01. 入退房</a>
+                <a class="mobile-chip" href="#airing">02. 放風</a>
+                <a class="mobile-chip" href="#payment">03. 收費</a>
+                <a class="mobile-chip" href="#cancel">04. 取消政策</a>
+                <a class="mobile-chip" href="#discount">05. 優惠</a>
+                <a class="mobile-chip" href="#health">06. 健康醫療</a>
+                <a class="mobile-chip" href="#abandon">07. 棄養預防</a>
+                <a class="mobile-chip" href="#video">08. 視訊</a>
+                <a class="mobile-chip" href="#other">09. 其他</a>
             </nav>
         </div>
     </div>
 
-    <div class="container my-5">
-        
-        <section id="checkin" class="section-padding">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <h2 class="h4 heading-title">營業與接送時間</h2>
-                    <div class="content-card">
-                        <p class="fw-700 text-brand mb-2">店面營業時間</p>
-                        <ul class="list-unstyled ps-2 mb-4">
-                            <li><i class="far fa-clock me-2"></i>平日：
-                                                                 </br>‧13:00 - 17:00
-                                                                 </br>‧18:00 - 20:00</li>
-                            <li><i class="far fa-clock me-2"></i>假日：
-                                                                 </br>‧11:00 - 17:00 
-                                                                 </br>‧18:00 - 20:00</li>
-                            <li class="text-danger"><i class="fas fa-calendar-times me-2"></i>公休日:週三，週四</li>
-                            <li class="text-danger"><i class="fas fa-bullhorn me-2"></i>國定假日：另行公告</li>
-                        </ul>
-                        <p class="fw-700 text-brand mb-2">入退宿時間限制</p>
-                        <ul class="list-unstyled ps-2">
-                            <li><i class="fas fa-sign-in-alt me-2"></i>入退宿時段：
-                                                                                    </br>  <li><i class="far fa-clock me-2"></i>平日: 
-                                                                                    </br>‧13:00-17:00
-                                                                                    </br>‧18:00-20:00
-                                                                                    </br><Strong>（11:00 - 13:00 之間接送，需提早告知時間）</Strong>
-   
-                                                                                    </br> <li><i class="far fa-clock me-2"></i> 假日:
-                                                                                    </br> ‧ 11:00-17:00 
-                                                                                    </br> ‧18:00-20:00
-                            <li><i class="fas fa-star me-2"></i>超時費用：提早或超時接送，每 30 分鐘加收 $100 元。</li>
-                            <li><i class="fas fa-handshake me-2"></i>公休日入退宿： 以雙方事前協議之特定時段為主。</li>
-                            <li><i class="fas fa-info-circle me-2"></i>首次入住：需預留 30 分鐘進行現場確認</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-5 d-none d-lg-block text-center">
-                    <i class="fas fa-door-open fa-10x" style="color: var(--brand-light);"></i>
-                </div>
+    <div class="container">
+        <div class="row">
+            
+            <!-- 電腦版左側固定目錄 -->
+            <div class="col-lg-3 d-none d-lg-block">
+                <nav class="sidebar-nav" id="sidebar-menu">
+                    <p class="text-muted small fw-700 mb-3 px-3" style="letter-spacing: 2px;">目錄 CONTENTS</p>
+                    <a class="index-link" href="#checkin">01. 營業與接送時間</a>
+                    <a class="index-link" href="#airing">02. 放風時間與安全</a>
+                    <a class="index-link" href="#payment">03. 收費與訂金規則</a>
+                    <a class="index-link" href="#cancel">04. 退訂與改期約定</a>
+                    <a class="index-link" href="#discount">05. 住宿優惠方案</a>
+                    <a class="index-link" href="#health">06. 健康與防疫規範</a>
+                    <a class="index-link" href="#abandon">07. 棄養條款</a>
+                    <a class="index-link" href="#video">08. 視訊系統服務</a>
+                    <a class="index-link" href="#other">09. 其他注意事項</a>
+                </nav>
             </div>
-        </section>
 
-        <section id="airing" class="section-padding">
-            <h2 class="h4 heading-title">放風時間與安全規範</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="content-card">
-                        <p class="fw-700 mb-2">每日基本放風</p>
-                        <p class="small">每隻動物每天有基本 <strong>30分鐘</strong> 的放風時間。將依當日入住率與動物體能狀況適度延長。</p>
-                        <p class="fw-700 mb-2 mt-4">獨立放風原則</p>
-                        <p class="small">均採獨立放風，不與他人的動物接觸。同飼主之多動物家庭若欲同時放風，需主動提出。</p>
+            <!-- 右側內容區 -->
+            <div class="col-lg-8 offset-lg-1">
+                
+                <!-- 01 -->
+                <section id="checkin" class="chapter-section">
+                    <div class="chapter-title">
+                        <span class="chapter-num">01</span>
+                        <h2 class="chapter-name">營業與接送時間</h2>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="important-note">
-                        <p class="fw-700 text-danger mb-2"><i class="fas fa-exclamation-triangle me-2"></i>安全考量：不提供放風動物</p>
-                        <p class="small mb-0">為了安全與預防受傷，以下物種不提供出籠放風服務：</p>
-                        <ol class="small mb-0 mt-2">
-                            <li>倉鼠</li>
-                            <li>刺蝟</li>
-                            <li>蜜袋鼯</li>
-                            <li>鳥類</li>
-                            <li>大白鼠</li>
-                            <li>爬蟲類</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="payment" class="section-padding">
-            <h2 class="h4 heading-title">收費與訂金規則</h2>
-            <div class="content-card">
-                <div class="row">
-                    <div class="col-md-6 border-end">
-                        <p class="fw-700 mb-2">計費規則</p>
-                        <ul class="small">
-                            <li><strong>按日計費，入宿當日與退宿當日均各算一日（未滿一日以一日計算）。
-
-(日間安親另洽)。</strong></li>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="fw-700 text-brand mb-2">店面營業時間</p>
+                            <ul class="list-unstyled ps-1 mb-4 small">
+                                <li class="mb-2"><i class="far fa-clock me-2 text-muted"></i><strong>平日：</strong><br>13:00 - 17:00 / 18:00 - 20:00</li>
+                                <li class="mb-2"><i class="far fa-clock me-2 text-muted"></i><strong>假日：</strong><br>11:00 - 17:00 / 18:00 - 20:00</li>
+                                <li class="text-danger"><i class="fas fa-calendar-times me-2"></i>公休日：週三，週四</li>
+                                <li class="text-danger"><i class="fas fa-bullhorn me-2"></i>國定假日：另行公告</li>
                             </ul>
-                    </div>
-                    <div class="col-md-6 ps-md-4">
-                        <p class="fw-700 mb-2">訂金規定</p>
-                        <ul class="small">
-                            <li><strong>預訂成功後，請於 24 小時內預付總住宿費用之 30% 作為訂金，逾期未付系統將自動釋出房位。
-</li>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="fw-700 text-brand mb-2">入退宿時間限制</p>
+                            <ul class="list-unstyled ps-1 small">
+                                <li class="mb-2"><i class="fas fa-sign-in-alt me-2 text-muted"></i><strong>平日入退宿：</strong><br>13:00-17:00 / 18:00-20:00<br><span class="text-muted">（11:00 - 13:00 之間接送，需提早告知）</span></li>
+                                <li class="mb-2"><i class="fas fa-sign-in-alt me-2 text-muted"></i><strong>假日入退宿：</strong><br>11:00-17:00 / 18:00-20:00</li>
+                                <li class="mb-1"><strong>超時費用：</strong>提早或超時接送，每 30 分鐘加收 $100 元。</li>
+                                <li class="mb-1"><strong>公休接送：</strong>以雙方事前協議之特定時段為主。</li>
+                                <li><strong>首次入住：</strong>需預留 30 分鐘進行現場確認。</li>
                             </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="cancel" class="section-padding">
-            <h2 class="h4 heading-title">退訂與改期約定</h2>
-            <div class="content-card">
-                <p class="fw-700 text-brand mb-2">常規取消與退款機制</p>
-                <p class="small mb-4">若飼主因故需取消行程，訂金退還標準如下：</p>
-                
-                <ul class="small mb-0" style="line-height: 1.8;">
-                    <li class="mb-3">
-                        <strong class="text-dark">入住日 7 天前（含）取消 / 變更：</strong><br>
-                        可接受免費改期 / 變更時間 1 次（須於通知取消時當下決定新日期）。<br>
-                        若無法決定新日期，訂金可轉為保留款，須於 3 個月內一次性消費折抵完畢，逾期視同放棄，訂金恕不退還。<br>
-                        <span class="text-muted">(備註：若加長住宿天數則不在此限)</span>
-                    </li>
-                    <li class="mb-3">
-                        <strong class="text-dark">入住日 4 至 7 天前取消 / 變更：</strong><br>
-                        訂金無法保留住宿，僅可轉作店內商品消費折抵，恕不退現（須於取消後 7 日內使用完畢）。
-                    </li>
-                    <li class="mb-3">
-                        <strong class="text-dark">入住日 3 天內取消 / 變更：</strong><br>
-                        視同取消訂房，訂金全額沒收，恕不退還、改期或折抵。
-                    </li>
-                </ul>
-
-                <div class="important-note mt-4 mb-4" style="border-left-color: #dc3545; background-color: #fff5f5;">
-                    <p class="fw-700 text-danger mb-1"><i class="fas fa-exclamation-triangle me-2"></i>春節 / 連續假期取消：</p>
-                    <p class="small text-danger mb-0">因連假房位具排他性且稀缺，預訂後不論何時取消，訂金（總房價 30%）均全額沒收，不適用上述保留或折抵機制。</p>
-                </div>
-
-                <ul class="small mb-0" style="line-height: 1.8;">
-                    <li class="mb-3">
-                        <strong class="text-dark">特殊狀況（不可抗力）免責：</strong><br>
-                        若因寵物重病 / 死亡、飼主住院，或遇戰亂、天災等不可抗力因素導致行程取消，<br>
-                        飼主於提供相關醫療診斷書或官方證明後，可全額退還訂金或免費改期。
-                    </li>
-                    <li>
-                        <strong class="text-dark">提早退宿：</strong><br>
-                        因該房位已預留且無法即時轉讓他人，未住滿之天數費用恕不退還。
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="discount" class="section-padding">
-            <h2 class="h4 heading-title">住宿優惠方案</h2>
-            <p class="small mb-3">※ 申請條件:需提前14天（含）以上預約。</p>
-            <p class="small mb-3">※ 適用對象：限同一飼主（同一聯絡人/同一份合約）之動物，跨家庭湊單亦不適用。</p>
-            <p class="small mb-3">※ 不適用期：春節及連續假期期間 不適用此優惠。</p>
-            <p class="small mb-3">※ 特殊聲明：本方案僅適用於常態過夜住宿之房費。
-凡特殊照護費（如餵藥、灌食、等技術項目），以及日間安親、醫療喘息等服務，一律依原價獨立計算，恕不列入此天數折扣優惠。</p>
-            <div class="row g-3">
-                <div class="col-md-6 col-lg-3">
-                    <div class="content-card p-3">
-                        <p class="small fw-700 text-center mb-2">預約一隻</p>
-                        <div class="discount-grid">
-                            <div class="discount-item"><div class="discount-day">滿10日</div><div class="discount-off">95折</div></div>
-                            <div class="discount-item"><div class="discount-day">滿20日</div><div class="discount-off">9折</div></div>
-                            <div class="discount-item"><div class="discount-day">滿30日</div><div class="discount-off">85折</div></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="content-card p-3">
-                        <p class="small fw-700 text-center mb-2">預約兩隻</p>
-                        <div class="discount-grid">
-                            <div class="discount-item"><div class="discount-day">滿7日</div><div class="discount-off">95折</div></div>
-                            <div class="discount-item"><div class="discount-day">滿14日</div><div class="discount-off">9折</div></div>
-                            <div class="discount-item"><div class="discount-day">滿21日</div><div class="discount-off">85折</div></div>
+                </section>
+
+                <!-- 02 -->
+                <section id="airing" class="chapter-section">
+                    <div class="chapter-title">
+                        <span class="chapter-num">02</span>
+                        <h2 class="chapter-name">放風時間與安全規範</h2>
+                    </div>
+                    
+                    <p class="fw-700 mb-1">每日基本放風</p>
+                    <p class="small mb-4">每隻動物每天有基本 <strong>30分鐘</strong> 的放風時間。將依當日入住率與動物體能狀況適度延長。</p>
+                    
+                    <p class="fw-700 mb-1">獨立放風原則</p>
+                    <p class="small">均採獨立放風，不與他人的動物接觸。同飼主之多動物家庭若欲同時放風，需主動提出。</p>
+
+                    <div class="outline-box danger mt-4">
+                        <div class="outline-title"><i class="fas fa-exclamation-triangle"></i>安全考量：不提供放風動物</div>
+                        <p class="small mb-2">為了安全與預防受傷，以下物種不提供出籠放風服務：</p>
+                        <div class="d-flex flex-wrap gap-2 small fw-700">
+                            <span class="badge bg-light text-dark border px-3 py-2">1. 倉鼠</span>
+                            <span class="badge bg-light text-dark border px-3 py-2">2. 刺蝟</span>
+                            <span class="badge bg-light text-dark border px-3 py-2">3. 蜜袋鼯</span>
+                            <span class="badge bg-light text-dark border px-3 py-2">4. 鳥類</span>
+                            <span class="badge bg-light text-dark border px-3 py-2">5. 大白鼠</span>
+                            <span class="badge bg-light text-dark border px-3 py-2">6. 爬蟲類</span>
                         </div>
                     </div>
-                </div>
-               <div class="col-md-6 col-lg-3">
-                    <div class="content-card p-3">
-                        <p class="small fw-700 text-center mb-2">預約三隻以上</p>
-                        <div class="discount-grid">
-                            <div class="discount-item"><div class="discount-day">滿5日</div><div class="discount-off">95折</div></div>
-                            <div class="discount-item"><div class="discount-day">滿10日</div><div class="discount-off">9折</div></div>
-                            <div class="discount-item"><div class="discount-day">滿15日</div><div class="discount-off">85折</div></div>
+                </section>
+
+                <!-- 03 -->
+                <section id="payment" class="chapter-section">
+                    <div class="chapter-title">
+                        <span class="chapter-num">03</span>
+                        <h2 class="chapter-name">收費與訂金規則</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <p class="fw-700 text-brand mb-2">計費規則</p>
+                            <p class="small">按日計費，入宿當日與退宿當日均各算一日（未滿一日以一日計算）。<br>(日間安親另洽)。</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="fw-700 text-brand mb-2">訂金規定</p>
+                            <p class="small">預訂成功後，請於 <strong>24 小時內</strong>預付總住宿費用之 30% 作為訂金，逾期未付系統將自動釋出房位。</p>
                         </div>
                     </div>
-                </div>
-                </div>
-        </section>
+                </section>
 
-        <section id="health" class="section-padding">
-            <h2 class="h4 heading-title">健康與醫療防疫規範</h2>
-            <div class="content-card">
-                <ul class="small mb-4" style="line-height: 1.8;">
-                    <li class="mb-2">
-                        <strong class="text-dark">健康要求：</strong><br>
-                        為維護環境安全及其他寄宿動物權益，恕不接受有高度傳染疑慮或重病之動物入住。
-                    </li>
-                    <li class="mb-2">
-                        <strong class="text-dark">健康證明提供：</strong>
-                        <ol class="mt-1 ps-3 mb-0">
-                            <li>所有入住動物建議提供兩個月內之健康檢查報告。</li>
-                            <li>慢性病或老年動物：須提供兩個月內之就診病歷。</li>
-                            <li>鳥類：必須附上兩個月內之「雙病毒檢驗陰性證明」（多鳥家庭可抽樣擇一檢驗）。若未能提供相關合格證明，壹伍有權拒絕入住。</li>
-                        </ol>
-                    </li>
-                    <li class="mb-2 mt-3">
-                        <strong class="text-dark">現場拒絕入宿：</strong><br>
-                        入住當日經現場觀察，若動物有明顯精神萎靡、脫水、劇烈喘息、嚴重外傷或疑似傳染病徵兆，為保障動物安全，壹伍有權現場拒絕入住，訂金恕不退還。
-                    </li>
-                    <li class="mb-2">
-                        <strong class="text-dark">誠實告知義務：</strong><br>
-                        飼主有義務主動說明寵物病史與特殊照顧事項。若因隱瞞傳染性病史導致其他寄宿動物受害，飼主須負完全之法律與賠償責任。
-                    </li>
-                </ul>
+                <!-- 04 -->
+                <section id="cancel" class="chapter-section">
+                    <div class="chapter-title">
+                        <span class="chapter-num">04</span>
+                        <h2 class="chapter-name">退訂與改期約定</h2>
+                    </div>
 
-                <hr class="my-4" style="opacity: 0.1;">
+                    <p class="fw-700 text-brand mb-3">常規取消與退款機制</p>
+                    <p class="small mb-4 text-muted">若飼主因故需取消行程，訂金退還標準如下：</p>
 
-                <h5 class="fw-700 text-brand mb-3" style="font-size: 1.1rem;"><i class="fas fa-dove me-2"></i>鳥類寄宿特別防疫聲明</h5>
-                <ul class="small mb-4" style="line-height: 1.8;">
-                    <li class="mb-2">
-                        <strong class="text-dark">豁免條款：</strong>凡 1 年內入住 2 次（含）以上的鳥寶，在「不曾參加鳥聚/外展、家中無增添新鳥類成員、無接觸其他疑似感染源」之前提下，原雙病毒報告可放寬至 1 年
-（即自報告日起算 1 年內，無須每次重複檢驗）。</li>
-                    <li class="mb-2">
-                        <strong class="text-dark">清消承諾：</strong>每組鳥類家庭退房後，鳥房環境、籠具及用品皆會使用合格專用藥劑全面性消毒，確保享有獨立、安全的空間。
-                    </li>
-                    <li class="mb-2">
-                        <strong class="text-dark">責任釐清：</strong>壹伍採取單一家庭預約制，並於退房後進行嚴格清消（包含全室噴灑 F10 SC、以及籠具使用衛可（Virkon）進行消毒處理）。
+                    <ul class="custom-list small mb-4">
+                        <li class="mb-3">
+                            <strong>入住日 7 天前（含）取消 / 變更：</strong><br>
+                            可接受免費改期 / 變更時間 1 次（須於通知取消時當下決定新日期）。<br>
+                            若無法決定新日期，訂金可轉為保留款，須於 3 個月內一次性消費折抵完畢，逾期視同放棄，訂金恕不退還。<br>
+                            <span class="text-muted">(備註：若加長住宿天數則不在此限)</span>
+                        </li>
+                        <li class="mb-3">
+                            <strong>入住日 4 至 7 天前取消 / 變更：</strong><br>
+                            訂金無法保留住宿，僅可轉作店內商品消費折抵，恕不退現（須於取消後 7 日內使用完畢）。
+                        </li>
+                        <li>
+                            <strong>入住日 3 天內取消 / 變更：</strong><br>
+                            視同取消訂房，訂金全額沒收，恕不退還、改期或折抵。
+                        </li>
+                    </ul>
 
-若鳥隻於退房返家後出現身體不適，在壹伍照顧程序皆符合規範的前提下，雙方同意此為個別個體之隱性疾病或自身免疫力發展（如環境轉換之緊迫壓力引發），非因住宿環境感染所致。
+                    <div class="outline-box danger">
+                        <div class="outline-title"><i class="fas fa-calendar-times"></i>春節 / 連續假期取消</div>
+                        <p class="small mb-0">因連假房位具排他性且稀缺，預訂後<strong>不論何時取消</strong>，訂金（總房價 30%）均全額沒收，不適用上述保留或折抵機制。</p>
+                    </div>
 
-                    </li>
-                </ul>
+                    <ul class="custom-list small mt-4">
+                        <li class="mb-2">
+                            <strong>特殊狀況（不可抗力）免責：</strong><br>
+                            若因寵物重病 / 死亡、飼主住院，或遇戰亂、天災等不可抗力因素導致行程取消，飼主於提供相關醫療診斷書或官方證明後，可全額退還訂金或免費改期。
+                        </li>
+                        <li>
+                            <strong>提早退宿：</strong><br>
+                            因該房位已預留且無法即時轉讓他人，未住滿之天數費用恕不退還。
+                        </li>
+                    </ul>
+                </section>
 
-                <hr class="my-4" style="opacity: 0.1;">
+                <!-- 05 -->
+                <section id="discount" class="chapter-section">
+                    <div class="chapter-title">
+                        <span class="chapter-num">05</span>
+                        <h2 class="chapter-name">住宿優惠方案</h2>
+                    </div>
 
-                <h5 class="fw-700 text-brand mb-3" style="font-size: 1.1rem;"><i class="fas fa-notes-medical me-2"></i>特殊風險與緊急醫療授權</h5>
-                
-                <div class="important-note mb-4" style="border-left-color: #dc3545; background-color: #fff5f5;">
-                    <p class="fw-700 text-danger mb-1"><i class="fas fa-exclamation-triangle me-2"></i>高風險個體（幼年/老年/慢性病）特別聲明</p>
-                    <p class="small text-danger mb-0">幼年、老年或患有慢性病之動物，因自身免疫力與生理機能較不穩定，於轉換環境時易因緊迫引發不可預測之急性病變，嚴重時可能導致遺憾（包括身亡）。若動物在住宿期間不幸過世，壹伍將第一時間聯繫飼主。若飼主因故於 3 小時內無法趕到現場，則同意授權由指定之「緊急聯絡人」代辦後續事宜。</p>
-                </div>
+                    <div class="small text-muted mb-4" style="line-height: 1.8;">
+                        ※ 申請條件：需提前 14 天（含）以上預約。<br>
+                        ※ 適用對象：限同一飼主（同一聯絡人/同一份合約）之動物，跨家庭湊單亦不適用。<br>
+                        ※ 不適用期：春節及連續假期期間不適用此優惠。<br>
+                        ※ 特殊聲明：本方案僅適用於常態過夜住宿之房費。凡特殊照護費（如餵藥、灌食等技術項目），以及日間安親、醫療喘息等服務，一律依原價獨立計算，恕不列入此天數折扣優惠。
+                    </div>
 
-                <ul class="small mb-4" style="line-height: 1.8;">
-                    <li class="mb-2"><strong class="text-dark">醫療聯繫：</strong>寄養期間若動物發生異常狀態(如精神不濟、拒食、拉肚子等)，壹伍將優先聯繫飼主。</li>
-                    <li class="mb-2"><strong class="text-dark">先行處置：</strong>若發生危急狀況且無法即時聯繫到飼主時，飼主同意授權壹伍將寵物送往約定或鄰近之特寵醫院進行救治。(若遇上壹伍約定之醫院滿診或休診，將以爭取急救時間為優先，轉送鄰近且有特寵門診之專業醫院。)</li>
-                    <li class="mb-2"><strong class="text-dark">費用承擔：</strong>所有醫療衍生之掛號診療費用與車資，由飼主全額負擔。</li>
-                </ul>
+                    <div class="mb-4">
+                        <p class="fw-700 text-brand mb-2"><i class="fas fa-tag me-2"></i>預約一隻</p>
+                        <div class="discount-wrap">
+                            <div class="discount-ticket"><div class="ticket-day">滿 10 日</div><div class="ticket-off">95 折</div></div>
+                            <div class="discount-ticket"><div class="ticket-day">滿 20 日</div><div class="ticket-off">9 折</div></div>
+                            <div class="discount-ticket"><div class="ticket-day">滿 30 日</div><div class="ticket-off">85 折</div></div>
+                        </div>
+                    </div>
 
-                <p class="fw-700 mb-2 small"><i class="fas fa-hospital me-2"></i>合作約定醫院</p>
-                <div class="row g-3 mt-2 mb-4">
-                    <div class="col-auto"><span class="badge bg-secondary fs-6 px-3 py-2 font-weight-normal">獴獴加動物醫院</span></div>
-                    <div class="col-auto"><span class="badge bg-secondary fs-6 px-3 py-2 font-weight-normal">小水豚動物醫院</span></div>
-                    <div class="col-auto"><span class="badge bg-secondary fs-6 px-3 py-2 font-weight-normal">凡賽爾賽鴿寵物鳥醫院</span></div>
-                    <div class="col-auto"><span class="badge bg-secondary fs-6 px-3 py-2 font-weight-normal">布達羊急診動物醫院</span></div>
-                    <div class="col-auto"><span class="badge bg-secondary fs-6 px-3 py-2 font-weight-normal">雙北特寵醫院</span></div>
-                </div>
-                <p class="small text-muted mb-4"><strong>指定醫院：</strong>若飼主有指定醫院，請聯繫緊急聯絡人代為送醫。</p>
+                    <div class="mb-4">
+                        <p class="fw-700 text-brand mb-2"><i class="fas fa-tags me-2"></i>預約兩隻</p>
+                        <div class="discount-wrap">
+                            <div class="discount-ticket"><div class="ticket-day">滿 7 日</div><div class="ticket-off">95 折</div></div>
+                            <div class="discount-ticket"><div class="ticket-day">滿 14 日</div><div class="ticket-off">9 折</div></div>
+                            <div class="discount-ticket"><div class="ticket-day">滿 21 日</div><div class="ticket-off">85 折</div></div>
+                        </div>
+                    </div>
 
-                <hr class="my-4" style="opacity: 0.1;">
+                    <div>
+                        <p class="fw-700 text-brand mb-2"><i class="fas fa-layer-group me-2"></i>預約三隻以上</p>
+                        <div class="discount-wrap">
+                            <div class="discount-ticket"><div class="ticket-day">滿 5 日</div><div class="ticket-off">95 折</div></div>
+                            <div class="discount-ticket"><div class="ticket-day">滿 10 日</div><div class="ticket-off">9 折</div></div>
+                            <div class="discount-ticket"><div class="ticket-day">滿 15 日</div><div class="ticket-off">85 折</div></div>
+                        </div>
+                    </div>
+                </section>
 
-                <h5 class="fw-700 text-brand mb-3" style="font-size: 1.1rem;"><i class="fas fa-cross me-2"></i>殯葬協助</h5>
-                <ul class="small mb-0" style="line-height: 1.8;">
-                    <li>飼主可委託代送至寵物禮儀公司，選擇集體火化或個別火化服務，火化費用由飼主負擔。</li>
-                    <li>住宿費用將依實際住宿天數計費。</li>
-                </ul>
+                <!-- 06 -->
+                <section id="health" class="chapter-section">
+                    <div class="chapter-title">
+                        <span class="chapter-num">06</span>
+                        <h2 class="chapter-name">健康與醫療防疫規範</h2>
+                    </div>
+
+                    <p class="fw-700 text-brand mb-2">基礎健康規定</p>
+                    <ul class="custom-list small mb-4">
+                        <li class="mb-2"><strong>健康要求：</strong>為維護環境安全及其他寄宿動物權益，恕不接受有高度傳染疑慮或重病之動物入住。</li>
+                        <li class="mb-2"><strong>健康證明提供：</strong>
+                            <ol class="mt-1 ps-3 mb-0 text-muted">
+                                <li>所有入住動物建議提供兩個月內之健康檢查報告。</li>
+                                <li>慢性病或老年動物：須提供兩個月內之就診病歷。</li>
+                                <li>鳥類：必須附上兩個月內之「雙病毒檢驗陰性證明」（多鳥家庭可抽樣擇一檢驗）。若未能提供，壹伍有權拒絕入住。</li>
+                            </ol>
+                        </li>
+                        <li class="mb-2"><strong>現場拒絕入宿：</strong>入住當日經現場觀察，若動物有明顯精神萎靡、脫水、劇烈喘息、嚴重外傷或疑似傳染病徵兆，為保障動物安全，壹伍有權現場拒絕入住，訂金恕不退還。</li>
+                        <li><strong>誠實告知義務：</strong>飼主有義務主動說明寵物病史與特殊照顧事項。若因隱瞞傳染性病史導致其他寄宿動物受害，飼主須負完全之法律與賠償責任。</li>
+                    </ul>
+
+                    <div class="outline-box">
+                        <div class="outline-title"><i class="fas fa-dove"></i>鳥類寄宿特別防疫聲明</div>
+                        <ul class="custom-list small mb-0 text-muted">
+                            <li class="mb-2"><strong>豁免條款：</strong>凡 1 年內入住 2 次（含）以上的鳥寶，在「不曾參加鳥聚/外展、家中無增添新鳥類成員、無接觸其他疑似感染源」之前提下，原雙病毒報告可放寬至 1 年（即自報告日起算 1 年內，無須每次重複檢驗）。</li>
+                            <li class="mb-2"><strong>清消承諾：</strong>每組鳥類家庭退房後，鳥房環境、籠具及用品皆會使用合格專用藥劑全面性消毒。</li>
+                            <li><strong>責任釐清：</strong>壹伍採取單一家庭預約制，並於退房後進行嚴格清消（包含全室噴灑 F10 SC、以及籠具使用衛可 Virkon 進行消毒）。若鳥隻於退房返家後出現身體不適，在壹伍照顧程序符合規範的前提下，雙方同意此為個別個體隱性疾病或自身免疫力發展，非因住宿環境感染所致。</li>
+                        </ul>
+                    </div>
+
+                    <div class="outline-box danger mt-4">
+                        <div class="outline-title"><i class="fas fa-heartbeat"></i>高風險個體特別聲明</div>
+                        <p class="small mb-0">幼年、老年或患有慢性病之動物，於轉換環境時易因緊迫引發不可預測之急性病變，嚴重時可能導致遺憾。若不幸過世，壹伍將第一時間聯繫。若飼主於 3 小時內無法趕到現場，則同意授權「緊急聯絡人」代辦後續事宜。</p>
+                    </div>
+
+                    <p class="fw-700 text-brand mb-2 mt-4">醫療處置與費用</p>
+                    <ul class="custom-list small mb-4">
+                        <li class="mb-2"><strong>醫療聯繫：</strong>寄養期間若動物發生異常狀態，將優先聯繫飼主。</li>
+                        <li class="mb-2"><strong>先行處置：</strong>若發生危急且無法即時聯繫飼主，同意授權壹伍將寵物送往約定或鄰近之特寵醫院救治。（以爭取急救時間為優先）</li>
+                        <li><strong>費用承擔：</strong>所有醫療衍生之掛號診療費用與車資，由飼主全額負擔。</li>
+                    </ul>
+
+                    <p class="fw-700 text-brand mb-2">合作約定醫院</p>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge bg-white text-dark border border-secondary px-3 py-2">獴獴加動物醫院</span>
+                        <span class="badge bg-white text-dark border border-secondary px-3 py-2">小水豚動物醫院</span>
+                        <span class="badge bg-white text-dark border border-secondary px-3 py-2">凡賽爾賽鴿寵物鳥醫院</span>
+                        <span class="badge bg-white text-dark border border-secondary px-3 py-2">布達羊急診動物醫院</span>
+                        <span class="badge bg-white text-dark border border-secondary px-3 py-2">雙北特寵醫院</span>
+                    </div>
+                    <p class="small text-muted mb-4"><strong>指定醫院：</strong>若飼主有指定醫院，請聯繫緊急聯絡人代為送醫。</p>
+
+                    <p class="fw-700 text-brand mb-2">殯葬協助</p>
+                    <p class="small mb-0">飼主可委託代送至寵物禮儀公司（火化費用由飼主負擔）。住宿費用將依實際住宿天數計費。</p>
+                </section>
+
+                <!-- 07 -->
+                <section id="abandon" class="chapter-section">
+                    <div class="chapter-title">
+                        <span class="chapter-num">07</span>
+                        <h2 class="chapter-name text-danger">棄養條款</h2>
+                    </div>
+
+                    <ul class="custom-list small text-danger fw-500 mb-0">
+                        <li class="mb-2"><strong>失聯認定：</strong>住宿期滿後逾 3 日未接回，且壹伍以電話、LINE 催告後仍無法聯繫到飼主時，將視同惡意棄養。</li>
+                        <li class="mb-2"><strong>欠費認定：</strong>住宿到期因故需展延續租者，若因任何因素遲繳或未付款超過 3 日，亦視為棄養並進行通報。</li>
+                        <li class="mb-2"><strong>後續處置：</strong>視為惡意棄養後，壹伍將依《動物保護法》通報主管機關，並將寵物移交動保處或相關收容單位，飼主不得異議或要求任何賠償。</li>
+                        <li class="mt-4 pb-2" style="list-style-type: none; border-bottom: 1px solid rgba(220, 53, 69, 0.2);">
+                            <i class="fas fa-info-circle me-1"></i> 此外，壹伍有權直接向<strong>「緊急聯絡人（兼連帶保證人）」</strong>請求支付寄養、催告及安置期間所產生之全額費用。請飼主務必確認其意願與義務。
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- 08 -->
+                <section id="video" class="chapter-section">
+                    <div class="chapter-title">
+                        <span class="chapter-num">08</span>
+                        <h2 class="chapter-name">視訊系統服務說明</h2>
+                    </div>
+
+                    <p class="small mb-4 text-muted">視訊系統採用 <strong>Tapo App</strong>，請飼主於入宿前自行下載 App 並申請個人帳號，以便現場進行權限分享。</p>
+
+                    <ul class="custom-list small mb-4">
+                        <li class="mb-2"><strong>免費聲明：</strong>房內視訊為本館提供之免費附加服務，非住宿計費項目。恕不提供因個別需求隨時調整角度之服務。若遇設備故障、斷網等，恕無法要求退費或補償。</li>
+                        <li class="mb-2"><strong>無技術支援：</strong>不包含飼主個人手機之 App 安裝教學或障礙排除。</li>
+                        <li class="text-danger"><strong>特定物種無視訊：</strong>倉鼠、蜜袋鼯、大白鼠、鳥類、刺蝟之房型「無」配置監視設備。<strong>*不接受飼主自備監視器現場架設*</strong></li>
+                    </ul>
+
+                    <p class="fw-700 text-brand mb-2">使用規範與動物福祉</p>
+                    <ul class="custom-list small mb-4">
+                        <li class="mb-2"><strong>禁止更動設定：</strong>觀看期間請勿擅自更改視訊帳號內的任何系統設定。</li>
+                        <li class="mb-2"><strong>關閉聲音功能：</strong>為避免突發聲音驚嚇寄宿動物，本服務全面關閉雙向語音對話及環境聲音監聽功能。</li>
+                        <li><strong>異常噪音處理：</strong>若監視器發出聲音、雜音，為維護動物情緒，壹伍將第一時間關閉該設備或拔除電源，待修復後再行開放。</li>
+                    </ul>
+
+                    <p class="fw-700 text-brand mb-2">特殊情況處理</p>
+                    <ul class="custom-list small mb-4">
+                        <li class="mb-2"><strong>連假網路壅塞：</strong>連續假期由於全台觀看人數較多，可能發生連線遲緩、斷訊，此為電信商承載限制。</li>
+                        <li><strong>設備安全：</strong>若寄宿動物啃咬視訊主機，將取下機器以確保安全。</li>
+                    </ul>
+
+                    <div class="outline-box mt-4">
+                        <div class="outline-title"><i class="fas fa-user-shield"></i>隱私與肖像權限制</div>
+                        <p class="small mb-0 text-muted">視訊畫面僅供飼主個人即時關心寵物狀態使用。若畫面中不慎拍攝到保姆之面容、日常作業或收錄到聲音，<strong>嚴禁將包含保姆隱私之畫面公開上傳至網路社群或媒體</strong>。若欲分享，請務必將保姆臉部及聲音進行模糊或修剪處理。</p>
+                    </div>
+                </section>
+
+                <!-- 09 -->
+                <section id="other" class="chapter-section">
+                    <div class="chapter-title">
+                        <span class="chapter-num">09</span>
+                        <h2 class="chapter-name">其他注意事項</h2>
+                    </div>
+
+                    <p class="fw-700 text-brand mb-2">首次入住與準備建議</p>
+                    <ul class="custom-list small mb-4">
+                        <li class="mb-2"><strong>自備習慣飲食：</strong>建議自行攜帶動物平時習慣食用之飼料、牧草或點心。</li>
+                        <li class="mb-2"><strong>飼料請先混合：</strong>若平時有多樣化飼料搭配，請提前於家中混合完畢。若因未自備習慣飲食導致拒食、腸胃不適，恕不負擔相關責任。</li>
+                        <li><strong>行李輕便原則：</strong>隨身行李請以簡單輕便為主，準備相對應天數之飲食。</li>
+                    </ul>
+
+                    <p class="fw-700 text-brand mb-2">規章更新與合約效力</p>
+                    <ul class="custom-list small mb-4">
+                        <li class="mb-2"><strong>規章效力：</strong>本入住規章如有未盡事宜，將以「壹伍」現場或官方社群之最新公告為準。</li>
+                        <li><strong>預約即同意：</strong>當您完成訂房預約並繳納訂金後，即視為您已充分閱讀、理解並完全同意本入住須知之所有條款與規範。</li>
+                    </ul>
+
+                    <div class="outline-box mt-4" style="border-color: var(--brand-dark);">
+                        <div class="outline-title" style="color: var(--brand-dark);"><i class="fas fa-gavel"></i>爭議解決（管轄法院）</div>
+                        <p class="small mb-0 text-muted"><strong>合意管轄：</strong>本約定內容依中華民國法律解釋之。雙方若因本服務、入住須知產生任何消費爭議或法律訴訟，雙方同意以<strong>台灣新北地方法院</strong>為第一審管轄法院。</p>
+                    </div>
+                </section>
+
             </div>
-        </section>
-
-        <section id="abandon" class="section-padding">
-            <div class="content-card border-danger border" style="background-color: #fff5f5;">
-                <h2 class="h4 heading-title text-danger mb-4">棄養條款</h2>
-                <ul class="small text-danger mb-0" style="line-height: 1.8; padding-left: 1rem;">
-                    <li class="mb-2"><strong class="text-danger">失聯認定：</strong>住宿期滿後逾 3 日未接回，且壹伍以電話、LINE 催告後仍無法聯繫到飼主時，將視同惡意棄養。</li>
-                    <li class="mb-2"><strong class="text-danger">欠費認定：</strong>住宿到期因故需展延續租者，若因任何因素遲繳或未付款超過 3 日，亦視為棄養並進行通報。</li>
-                    <li class="mb-2"><strong class="text-danger">後續處置：</strong>視為惡意棄養後，壹伍將依《動物保護法》通報主管機關，並將寵物移交動保處或相關收容單位，飼主不得異議或要求任何賠償。</li>
-                    <li class="mt-3 list-unstyled">
-                        <i class="fas fa-info-circle me-1"></i>此外，壹伍有權直接向<strong>「緊急聯絡人（兼連帶保證人）」</strong>請求支付寄養、催告及安置期間所產生之全額費用。請飼主務必確認其意願與義務。
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="video" class="section-padding">
-            <h2 class="h4 heading-title">視訊系統服務說明</h2>
-            <div class="content-card">
-                
-                <ul class="small mb-4" style="line-height: 1.8;">
-                    <li class="mb-2">
-                        <strong class="text-dark">免費聲明：</strong>房內視訊為本館提供之免費附加服務，非住宿計費項目。恕不提供因個別需求隨時調整角度之服務。若遇設備故障、斷網、系統不穩定等狀況，恕無法要求住宿退費、減價或補償。
-                    </li>
-                    <li class="mb-2">
-                        <strong class="text-dark">無技術支援：</strong>本服務不包含飼主個人手機之 App 安裝教學或障礙排除。
-                    </li>
-                    <li class="mb-2 text-danger">
-                        <strong class="text-danger">特定物種無視訊：</strong>倉鼠、蜜袋鼯、大白鼠、鳥類、刺蝟之房型「無」配置監視設備。<br>
-                        <i class="fas fa-ban me-1 mt-1"></i><strong>*不接受飼主自備監視器至現場架設*</strong>
-                    </li>
-                </ul>
-
-                <hr class="my-4" style="opacity: 0.1;">
-
-                <h5 class="fw-700 text-brand mb-3" style="font-size: 1.1rem;"><i class="fas fa-paw me-2"></i>使用規範與動物福祉</h5>
-                <ol class="small mb-4 ps-3" style="line-height: 1.8;">
-                    <li class="mb-2"><strong class="text-dark">禁止更動設定：</strong>觀看期間請勿擅自更改視訊帳號內的任何系統設定。</li>
-                    <li class="mb-2"><strong class="text-dark">全面關閉聲音功能：</strong>為避免突發聲音驚嚇寄宿動物，本服務全面關閉雙向語音對話及環境聲音監聽功能。</li>
-                    <li class="mb-2"><strong class="text-dark">異常噪音處理：</strong>若因系統異常或操作不當導致監視器發出聲音、雜音，為維護動物情緒，壹伍將第一時間關閉該設備或拔除電源，待修復後再行開放。</li>
-                </ol>
-
-                <hr class="my-4" style="opacity: 0.1;">
-
-                <h5 class="fw-700 text-brand mb-3" style="font-size: 1.1rem;"><i class="fas fa-exclamation-circle me-2"></i>特殊情況處理</h5>
-                <ol class="small mb-4 ps-3" style="line-height: 1.8;">
-                    <li class="mb-2">連續假日期間，由於寄宿動物數量較多，可能會發生連線遲緩或擁塞等無法連線的狀況。</li>
-                    <li class="mb-2">若寄宿動物啃咬視訊主機，將取下機器以確保安全。</li>
-                </ol>
-                <ul class="small mb-4" style="line-height: 1.8;">
-                    <li class="mb-2">
-                        <strong class="text-dark">連假網路壅塞：</strong>連續假期或熱門時段由於全台線上觀看人數較多，可能發生連線遲緩、斷訊或無法登入之狀況，此為電信商網路與 App 伺服器承載限制，敬請見諒。
-                    </li>
-                </ul>
-
-                <hr class="my-4" style="opacity: 0.1;">
-
-                <h5 class="fw-700 text-brand mb-3" style="font-size: 1.1rem;"><i class="fas fa-user-shield me-2"></i>隱私與肖像權注意事項</h5>
-                <p class="small mb-4" style="line-height: 1.8;">
-                    <strong class="text-dark">畫面翻拍限制：</strong>視訊畫面僅供飼主個人即時關心寵物狀態使用。<br>
-                    若畫面中不慎拍攝到保姆之面容、日常作業或收錄到聲音，<strong>嚴禁將包含保姆隱私之畫面公開上傳至網路社群或媒體</strong>。若欲分享寵物萌樣給親友，請務必將保姆臉部及聲音進行模糊或修剪處理。
-                </p>
-
-                <div class="important-note mb-0">
-                    <p class="fw-700 mb-1 text-brand"><i class="fas fa-mobile-alt me-2"></i>安裝與操作簡介</p>
-                    <p class="small mb-0">視訊系統採用 <strong>Tapo App</strong>，請飼主於入宿前自行下載 App 並申請個人帳號，以便現場進行權限分享。</p>
-                </div>
-                
-            </div>
-        </section>
-
-        <section id="other" class="section-padding">
-            <h2 class="h4 heading-title">其他注意事項</h2>
-            <div class="content-card">
-                
-                <h5 class="fw-700 text-brand mb-3" style="font-size: 1.1rem;"><i class="fas fa-suitcase me-2"></i>首次入住與準備建議</h5>
-                <ol class="small mb-4 ps-3" style="line-height: 1.8;">
-                    <li class="mb-2">
-                        <strong class="text-dark">自備習慣飲食：</strong>為避免環境轉換造成個體緊迫或適應不良，建議自行攜帶動物平時習慣食用之飼料、牧草或點心。
-                    </li>
-                    <li class="mb-2">
-                        <strong class="text-dark">飼料請先混合：</strong>若平時有多樣化飼料搭配，請飼主提前於家中混合完畢。若因未自備習慣飲食導致動物現場拒食、挑食或腸胃不適，恕不負擔相關責任。
-                    </li>
-                    <li class="mb-2">
-                        <strong class="text-dark">行李輕便原則：</strong>隨身行李（如外出籠、自備用品）請以簡單輕便為主，準備相對應天數之飲食。
-                    </li>
-                </ol>
-
-                <hr class="my-4" style="opacity: 0.1;">
-
-                <h5 class="fw-700 text-brand mb-3" style="font-size: 1.1rem;"><i class="fas fa-file-signature me-2"></i>規章更新與合約效力</h5>
-                <ol class="small mb-4 ps-3" style="line-height: 1.8;">
-                    <li class="mb-2">
-                        <strong class="text-dark">規章效力：</strong>本入住規章內容如有未盡事宜或因應實務調整，將以「壹伍」現場或官方社群之最新公告為準。
-                    </li>
-                    <li class="mb-2">
-                        <strong class="text-dark">預約即同意：</strong>當您完成訂房預約並繳納訂金後，即視為您已充分閱讀、理解並完全同意本入住須知之所有條款與規範。
-                    </li>
-                </ol>
-
-                <div class="important-note mb-0" style="background-color: var(--brand-light); border-left-color: var(--brand-dark);">
-                    <p class="fw-700 mb-2" style="color: var(--brand-dark);"><i class="fas fa-gavel me-2"></i>爭議解決（管轄法院）</p>
-                    <p class="small mb-0 text-dark">
-                        <strong class="text-dark">合意管轄：</strong>本約定內容依中華民國法律解釋之。雙方若因本服務、入住須知產生任何消費爭議或法律訴訟，雙方同意以<strong>台灣新北地方法院</strong>為第一審管轄法院。
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
+        </div>
     </div>
 
-    <footer class="text-center py-4" style="background: var(--brand-main); color: white;">
-        <p class="small mb-0">&copy; 2026 壹伍 YiWu 非犬貓旅宿. 版權所有</p>
+    <footer class="text-center py-4" style="background: white; border-top: 1px solid #eee;">
+        <p class="small mb-0 text-muted" style="letter-spacing: 1px;">&copy; 2026 壹伍 YiWu 非犬貓旅宿. 版權所有</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 簡單的 JS 處理滑動時的 Active 狀態與平滑捲動
+        document.querySelectorAll('.index-link, .mobile-chip').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                // 扣除上方懸浮選單的高度
+                const offset = window.innerWidth < 992 ? 80 : 20; 
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+          
+                window.scrollTo({
+                     top: offsetPosition,
+                     behavior: "smooth"
+                });
+            });
+        });
+
+        // 監聽滾動，更新手機版 Nav 的 Active 狀態
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.chapter-section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.mobile-chip').forEach(chip => {
+                chip.classList.remove('active');
+                if (chip.getAttribute('href') === `#${current}`) {
+                    chip.classList.add('active');
+                    // 讓手機版選單自動捲動到可視範圍
+                    const nav = document.querySelector('.mobile-nav');
+                    nav.scrollLeft = chip.offsetLeft - (nav.offsetWidth / 2) + (chip.offsetWidth / 2);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
