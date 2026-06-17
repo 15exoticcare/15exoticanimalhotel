@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
+
 <!-- SEO 基礎設定 -->
 <title>兔子住宿指南｜新北泰山新莊兔子旅館與特寵照護知識｜壹伍非犬貓旅宿</title>
 <meta name="description" content="壹伍非犬貓旅宿整理兔子住宿、兔子寄宿、天竺鼠寄宿與鸚鵡住宿照護知識。位於新北泰山新莊交界，提供兔子旅館、特寵住宿、放風、牧草飲食、老兔與特殊照護需求說明。">
@@ -743,67 +743,104 @@
     }
 
     @media (max-width: 920px) {
-        nav {
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 14px;
-            padding: 16px 22px;
-        }
+nav {
+flex-direction: column;
+align-items: flex-start;
+gap: 8px;
+padding: 10px 16px 12px;
+}
 
-        .nav-links {
-            gap: 14px;
-        }
+.logo {
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
 
-        .grid,
-        .price-mini-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
+.nav-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 2px 0 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
 
-        .two-col {
-            grid-template-columns: 1fr;
-        }
-    }
+.nav-links::-webkit-scrollbar {
+    display: none;
+}
 
+.nav-links a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 0.92em;
+    line-height: 1.2;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: #F4F6F4;
+    color: #5F5F5F;
+}
+
+.nav-links a:hover,
+.nav-links .active-link {
+    background: #EEF3F0;
+    color: var(--primary-dark);
+}
+
+.active-link {
+    border-bottom: none;
+    padding-bottom: 7px;
+    font-weight: 800;
+}
+
+.line-button {
+    background: var(--primary-color) !important;
+    color: #fff !important;
+    padding: 7px 13px !important;
+    box-shadow: none;
+}
+
+}
     @media (max-width: 600px) {
-        header {
-            padding: 62px 18px 56px;
-        }
+nav {
+padding: 10px 14px 12px;
+}
 
-        .container {
-            padding: 36px 16px 0;
-        }
+.nav-links {
+    display: flex !important;
+    grid-template-columns: none !important;
+}
 
-        .intro-panel,
-        .article-card,
-        .mini-article,
-        .final-cta {
-            padding: 26px 22px;
-        }
+header {
+    padding: 48px 18px 46px;
+}
 
-        .grid,
-        .price-mini-grid {
-            grid-template-columns: 1fr;
-        }
+header p {
+    font-size: 1.02em;
+}
 
-        .nav-links {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            width: 100%;
-        }
+.hero-chips {
+    gap: 8px;
+    margin-top: 20px;
+}
 
-        .line-button {
-            text-align: center;
-        }
-    }
+.hero-chips span {
+    font-size: 0.88em;
+    padding: 6px 11px;
+}
+
+}
 </style>
-```
+
 
 </head>
 
 <body>
     <a class="skip-link" href="#main-content">跳到主要內容</a>
 
-```
+
 <nav aria-label="主要導覽">
     <a href="index.html" class="logo">壹伍非犬貓旅宿</a>
     <div class="nav-links">
@@ -1162,7 +1199,7 @@
         壹伍企業社｜統一編號：61245869
     </p>
 </footer>
-```
+
 
 </body>
 </html>
