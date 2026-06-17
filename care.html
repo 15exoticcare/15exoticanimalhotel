@@ -746,13 +746,13 @@
 nav {
 flex-direction: column;
 align-items: flex-start;
-gap: 8px;
-padding: 10px 16px 12px;
+gap: 10px;
+padding: 12px 18px;
 }
 
 .logo {
-    font-size: 20px;
-    line-height: 1.2;
+    font-size: 21px;
+    line-height: 1.25;
     letter-spacing: 1px;
 }
 
@@ -763,7 +763,7 @@ padding: 10px 16px 12px;
     gap: 8px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 2px 0 4px;
+    padding: 2px 0 6px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
 }
@@ -775,9 +775,9 @@ padding: 10px 16px 12px;
 .nav-links a {
     flex: 0 0 auto;
     white-space: nowrap;
-    font-size: 0.92em;
+    font-size: 0.95em;
     line-height: 1.2;
-    padding: 7px 10px;
+    padding: 8px 12px;
     border-radius: 999px;
     background: #F4F6F4;
     color: #5F5F5F;
@@ -791,34 +791,77 @@ padding: 10px 16px 12px;
 
 .active-link {
     border-bottom: none;
-    padding-bottom: 7px;
+    padding-bottom: 8px;
     font-weight: 800;
 }
 
 .line-button {
     background: var(--primary-color) !important;
     color: #fff !important;
-    padding: 7px 13px !important;
     box-shadow: none;
 }
 
+.grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-    @media (max-width: 600px) {
+
+.price-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.two-col {
+    grid-template-columns: 1fr;
+}
+
+}
+
+/* 手機版：文章卡片全部改單欄，避免中文字被擠成直排 */
+@media (max-width: 700px) {
 nav {
 padding: 10px 14px 12px;
+overflow: hidden;
+}
+
+.logo {
+    font-size: 20px;
 }
 
 .nav-links {
+    width: 100%;
+    max-width: 100%;
     display: flex !important;
+    flex-wrap: nowrap !important;
     grid-template-columns: none !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 8px;
+    padding-bottom: 6px;
+}
+
+.nav-links a {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    font-size: 0.92em;
+    padding: 7px 11px;
+}
+
+.line-button {
+    min-width: max-content !important;
+    padding: 7px 13px !important;
 }
 
 header {
-    padding: 48px 18px 46px;
+    padding: 46px 18px 44px;
+}
+
+header h1 {
+    font-size: 2rem;
+    line-height: 1.35;
 }
 
 header p {
     font-size: 1.02em;
+    line-height: 1.8;
 }
 
 .hero-chips {
@@ -831,8 +874,72 @@ header p {
     padding: 6px 11px;
 }
 
+.container {
+    padding: 36px 16px 0;
+}
+
+.intro-panel,
+.article-card,
+.mini-article,
+.final-cta {
+    padding: 26px 22px;
+}
+
+.grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+}
+
+.topic-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 22px 20px !important;
+    min-height: auto !important;
+}
+
+.topic-card h3,
+.topic-card p,
+.topic-card a,
+.topic-card .tag {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    letter-spacing: 0.4px !important;
+}
+
+.topic-card h3 {
+    font-size: 1.18em !important;
+    line-height: 1.55 !important;
+    margin-bottom: 10px !important;
+}
+
+.topic-card p {
+    font-size: 0.96em !important;
+    line-height: 1.75 !important;
+}
+
+.topic-card .tag {
+    display: inline-block !important;
+    width: auto !important;
+    padding: 6px 14px !important;
+    border-radius: 999px !important;
+    margin-bottom: 12px !important;
+}
+
+.price-mini-grid {
+    grid-template-columns: 1fr !important;
+}
+
+.two-col {
+    grid-template-columns: 1fr !important;
+}
+
 }
 </style>
+
 
 
 </head>
