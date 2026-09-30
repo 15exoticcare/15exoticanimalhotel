@@ -53,6 +53,10 @@ content="630">
 <meta name="twitter:card"
 content="summary_large_image">
 
+<!-- 👇 新增：預先連線字體伺服器，加速文字載入 👇 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&family=Open+Sans:wght@400;600&display=swap"
 rel="stylesheet">
@@ -545,7 +549,7 @@ gtag('config', 'G-KHWWFHPP3N');
         <img src="image_6.png"
              alt="壹伍非犬貓旅宿 Logo"
              style="height:60px;vertical-align:middle;"
-             class="me-1">
+             class="me-1" loading="lazy"> <!-- 加入 loading="lazy" -->
 
         壹伍
         <span>非犬貓旅宿 ｜ 特寵用品</span>
