@@ -38,6 +38,30 @@
 @media(max-width:610px){body{font-size:14px}.container{width:calc(100% - 32px)}.topline{font-size:11px}.brand-label strong{font-size:15px}.brand-label small{font-size:9px}.brand img{height:39px;width:39px}.hero-layout{padding-top:39px;padding-bottom:42px;gap:30px}.hero h1{font-size:clamp(30px,9vw,40px);line-height:1.42;margin:12px 0 15px}.hero p{font-size:13px;line-height:1.9}.hero-art{grid-template-rows:130px 130px;gap:7px}.hero-art img{border-radius:14px}.hero-art .note{font-size:10px;right:8px;bottom:-13px;padding:8px 12px}.category-wrap{top:67px}.cat-nav{padding:11px 0;gap:7px}.cat-nav a{font-size:11px;padding:8px 13px}.category-section{padding-top:56px;scroll-margin-top:120px}.section-intro{align-items:start;gap:9px}.section-intro h2{font-size:25px;line-height:1.4}.section-intro p{font-size:12px}.section-count strong{font-size:29px}.section-count{font-size:11px}.room-grid{grid-template-columns:1fr;gap:19px}.slide{height:232px}.room-info{padding:20px 20px 22px}.room-top{flex-direction:row}.room-title{font-size:18px}.room-price{font-size:24px}.other-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.other-card{padding:17px 13px}.other-card h3{font-size:14px}.other-card p{font-size:11px}.bottom-banner{padding:49px 0}.footer{padding-bottom:132px}.fixed-contact{background:rgba(252,250,247,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line)}.fixed-contact-inner{width:calc(100% - 28px);margin:9px auto calc(9px + env(safe-area-inset-bottom));display:block}.fixed-contact a{display:flex;justify-content:center;width:100%;padding:12px;font-size:13px}.dialog-wrap img{max-width:calc(94vw - 22px)}}
 @media(max-width:355px){.hero h1{font-size:28px}.brand-label small{display:none}.section-count{display:none}.room-price{font-size:21px}.room-info{padding:18px}.other-grid{grid-template-columns:1fr}.bottom-actions a{white-space:normal}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* 房型名稱旁的監視器標籤：只有實際提供監視器的房型顯示 */
+.room-camera-label{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  vertical-align:middle;
+  margin-left:7px;
+  padding:3px 9px;
+  border:1px solid #CBD8E0;
+  background:#EDF2F5;
+  border-radius:999px;
+  color:#486176;
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:11px;
+  font-weight:700;
+  line-height:1.55;
+  letter-spacing:0;
+  white-space:nowrap;
+}
+.room-camera-label i{font-size:11px;color:#486176}
+@media (max-width:420px){
+  .room-camera-label{margin-left:4px;padding:3px 7px;font-size:10px;}
+}
 </style>
 <style>
 /* 壹伍 2.4｜預約與諮詢分流 UI */
@@ -61,7 +85,7 @@
 <button aria-controls="mobile-nav" aria-expanded="false" aria-label="展開導覽選單" class="menu-toggle">☰</button></header>
 <nav aria-label="手機導覽" class="mobile-nav container" id="mobile-nav"><a href="index.html">首頁</a><a href="price.html">房型與收費</a><a href="care.html">兔子住宿指南</a><a href="rules.html">入住須知</a><a href="spring-2027.html">2027 春節公告</a><a href="shop.html">特寵選物</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 官方諮詢 ↗</a><a href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">立即線上預約 ↗</a></nav></div>
 <section class="hero"><div class="container hero-layout"><div><span class="eyebrow">ROOM COLLECTION · STAYS &amp; CARE</span><h1>每一種小小旅客，<br/><em>都有剛剛好的空間。</em></h1><p>從兔子、天竺鼠到雪貂、狐獴及其他特殊寵物，依個別需求安排適合的住宿房型。清楚查看房價、空間尺寸、設備與餐食，再選擇最適合寶貝的入住方式。</p><div class="hero-actions"><a class="primary-btn" href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">立即線上預約 ↗</a><a class="sub-btn" href="#section-rabbit">開始探索房型 ↗</a><a class="sub-btn" href="rules.html">入住須知 →</a></div></div>
-<div class="hero-art"><img alt="壹伍兔子住宿實際房型" class="main-photo" src="X1.jpg"/><img alt="狐獴及雪貂房型照片" src="X2.jpg"/><img alt="倉鼠住宿環境" src="X3.jpg"/><div class="note">住得自在，<b>才有安心的每一天。</b></div></div></div></section>
+<div class="hero-art"><img alt="壹伍兔子住宿實際房型" class="main-photo" src="rabbit1.jpg"/><img alt="狐獴及雪貂房型照片" src="N1.jpg"/><img alt="倉鼠住宿環境" src="I1.jpg"/><div class="note">住得自在，<b>才有安心的每一天。</b></div></div></div></section>
 <div class="intro-band"><div class="container"><p><strong>房價提醒：</strong>以下為一般日住宿費用，實際費用、加隻及節慶規則請以預約確認資訊為準。</p><a class="notice-link" href="spring-2027.html">2027 春節專案房價與規範 ↗</a></div></div>
 <div class="category-wrap"><nav aria-label="住宿物種分類" class="container cat-nav">
 <a data-target="section-rabbit" href="#section-rabbit">兔子・天竺鼠</a>
@@ -80,7 +104,7 @@
 <div class="slide"><img alt="壹伍兔子・天竺鼠・龍貓・土撥鼠 標準平面房 房型照片 3" decoding="async" loading="lazy" src="rabbit3.jpg" title="點擊查看大圖"/></div>
 </div><span class="photo-tag">ROOM · 01</span>
 <div class="gallery-controls"><button aria-label="上一張照片" class="slide-prev" type="button">‹</button><span class="slide-count">1 / 3</span><button aria-label="下一張照片" class="slide-next" type="button">›</button></div>
-</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">標準平面房</h3><div class="room-meta">兔子・天竺鼠・龍貓・土撥鼠</div></div><div class="room-price"><span class="currency">$</span>450<span class="unit">/日</span></div></div>
+</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">標準平面房<span class="room-camera-label" title="此房型設有監視器，可依入住指引遠端查看畫面"><i class="fas fa-video" aria-hidden="true"></i>可遠端觀看</span></h3><div class="room-meta">兔子・天竺鼠・龍貓・土撥鼠</div></div><div class="room-price"><span class="currency">$</span>450<span class="unit">/日</span></div></div>
 <div class="room-size">尺寸： 長 80 x 寬 60 × 高 50 cm</div>
 <div class="pet-badge"><i aria-hidden="true" class="fas fa-paw"></i><div>
 <div>第二隻起每隻 +$150/日<br><span style="font-size:0.75rem; font-weight:500;">(兔子最多 1 隻，其他最多 2 隻)</span></br></div>
@@ -109,7 +133,7 @@
 <div class="slide"><img alt="壹伍兔子・天竺鼠・龍貓・土撥鼠 舒適加大房 房型照片 3" decoding="async" loading="lazy" src="B3.jpg" title="點擊查看大圖"/></div>
 </div><span class="photo-tag">ROOM · 02</span>
 <div class="gallery-controls"><button aria-label="上一張照片" class="slide-prev" type="button">‹</button><span class="slide-count">1 / 3</span><button aria-label="下一張照片" class="slide-next" type="button">›</button></div>
-</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">舒適加大房</h3><div class="room-meta">兔子・天竺鼠・龍貓・土撥鼠</div></div><div class="room-price"><span class="currency">$</span>550<span class="unit">/日</span></div></div>
+</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">舒適加大房<span class="room-camera-label" title="此房型設有監視器，可依入住指引遠端查看畫面"><i class="fas fa-video" aria-hidden="true"></i>可遠端觀看</span></h3><div class="room-meta">兔子・天竺鼠・龍貓・土撥鼠</div></div><div class="room-price"><span class="currency">$</span>550<span class="unit">/日</span></div></div>
 <div class="room-size">尺寸： 長 100 x 寬 60 x 高 50 cm</div>
 <div class="pet-badge"><i aria-hidden="true" class="fas fa-paw"></i><div>
 <div>第二隻起每隻 +$150/日<br/><span style="font-size:0.75rem; font-weight:500;">(兔子最多 1 隻，其他最多 2 隻)</span></div>
@@ -138,7 +162,7 @@
 <div class="slide"><img alt="壹伍兔子・天竺鼠・龍貓・土撥鼠 豪華房型 房型照片 3" decoding="async" loading="lazy" src="C3.jpg" title="點擊查看大圖"/></div>
 </div><span class="photo-tag">ROOM · 03</span>
 <div class="gallery-controls"><button aria-label="上一張照片" class="slide-prev" type="button">‹</button><span class="slide-count">1 / 3</span><button aria-label="下一張照片" class="slide-next" type="button">›</button></div>
-</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">豪華房型</h3><div class="room-meta">兔子・天竺鼠・龍貓・土撥鼠</div></div><div class="room-price"><span class="currency">$</span>700<span class="unit">/日</span></div></div>
+</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">豪華房型<span class="room-camera-label" title="此房型設有監視器，可依入住指引遠端查看畫面"><i class="fas fa-video" aria-hidden="true"></i>可遠端觀看</span></h3><div class="room-meta">兔子・天竺鼠・龍貓・土撥鼠</div></div><div class="room-price"><span class="currency">$</span>700<span class="unit">/日</span></div></div>
 <div class="room-size">尺寸： 長 170 x 寬 120 x 高 117 cm</div>
 <div class="pet-badge"><i aria-hidden="true" class="fas fa-paw"></i><div>
 <div>第二隻起每隻 +$200/日<br/><span style="font-size:0.75rem; font-weight:500;">(兔子最多 2 隻，其他最多 4 隻)</span></div>
@@ -167,7 +191,7 @@
 <div class="slide"><img alt="壹伍兔子・天竺鼠・龍貓・土撥鼠 別墅房型 房型照片 3" decoding="async" loading="lazy" src="D3.jpg" title="點擊查看大圖"/></div>
 </div><span class="photo-tag">ROOM · 04</span>
 <div class="gallery-controls"><button aria-label="上一張照片" class="slide-prev" type="button">‹</button><span class="slide-count">1 / 3</span><button aria-label="下一張照片" class="slide-next" type="button">›</button></div>
-</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">別墅房型</h3><div class="room-meta">兔子・天竺鼠・龍貓・土撥鼠</div></div><div class="room-price"><span class="currency">$</span>800<span class="unit">/日</span></div></div>
+</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">別墅房型<span class="room-camera-label" title="此房型設有監視器，可依入住指引遠端查看畫面"><i class="fas fa-video" aria-hidden="true"></i>可遠端觀看</span></h3><div class="room-meta">兔子・天竺鼠・龍貓・土撥鼠</div></div><div class="room-price"><span class="currency">$</span>800<span class="unit">/日</span></div></div>
 <div class="room-size">尺寸： 長 200 x 寬 131 x 高 117 cm</div>
 <div class="pet-badge"><i aria-hidden="true" class="fas fa-paw"></i><div>
 <div>第二隻起每隻 +$250/日<br/><span style="font-size:0.75rem; font-weight:500;">(兔子最多 3 隻，其他最多 4 隻)</span></div>
@@ -200,7 +224,7 @@
 <div class="slide"><img alt="壹伍雪貂・狐獴 標準平面房 房型照片 3" decoding="async" loading="lazy" src="N3.jpg" title="點擊查看大圖"/></div>
 </div><span class="photo-tag">ROOM · 01</span>
 <div class="gallery-controls"><button aria-label="上一張照片" class="slide-prev" type="button">‹</button><span class="slide-count">1 / 3</span><button aria-label="下一張照片" class="slide-next" type="button">›</button></div>
-</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">標準平面房</h3><div class="room-meta">雪貂・狐獴</div></div><div class="room-price"><span class="currency">$</span>450<span class="unit">/日</span></div></div>
+</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">標準平面房<span class="room-camera-label" title="此房型設有監視器，可依入住指引遠端查看畫面"><i class="fas fa-video" aria-hidden="true"></i>可遠端觀看</span></h3><div class="room-meta">雪貂・狐獴</div></div><div class="room-price"><span class="currency">$</span>450<span class="unit">/日</span></div></div>
 <div class="room-size">尺寸： 長 80 x 寬 60 × 高 50 cm</div>
 <div class="pet-badge"><i aria-hidden="true" class="fas fa-paw"></i><div>
  (上限一隻)
@@ -225,7 +249,7 @@
 <div class="slide"><img alt="壹伍雪貂・狐獴 舒適加大房 房型照片 3" decoding="async" loading="lazy" src="O3.jpg" title="點擊查看大圖"/></div>
 </div><span class="photo-tag">ROOM · 02</span>
 <div class="gallery-controls"><button aria-label="上一張照片" class="slide-prev" type="button">‹</button><span class="slide-count">1 / 3</span><button aria-label="下一張照片" class="slide-next" type="button">›</button></div>
-</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">舒適加大房</h3><div class="room-meta">雪貂・狐獴</div></div><div class="room-price"><span class="currency">$</span>550<span class="unit">/日</span></div></div>
+</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">舒適加大房<span class="room-camera-label" title="此房型設有監視器，可依入住指引遠端查看畫面"><i class="fas fa-video" aria-hidden="true"></i>可遠端觀看</span></h3><div class="room-meta">雪貂・狐獴</div></div><div class="room-price"><span class="currency">$</span>550<span class="unit">/日</span></div></div>
 <div class="room-size">尺寸： 長 100 x 寬 60 x 高 50 cm</div>
 <div class="pet-badge"><i aria-hidden="true" class="fas fa-paw"></i><div>
 <div>第二隻 +$150/日 <span style="font-size:0.75rem; font-weight:500;">(上限兩隻)</span></div>
@@ -250,7 +274,7 @@
 <div class="slide"><img alt="壹伍雪貂・狐獴 豪華房 房型照片 3" decoding="async" loading="lazy" src="L3.jpg" title="點擊查看大圖"/></div>
 </div><span class="photo-tag">ROOM · 03</span>
 <div class="gallery-controls"><button aria-label="上一張照片" class="slide-prev" type="button">‹</button><span class="slide-count">1 / 3</span><button aria-label="下一張照片" class="slide-next" type="button">›</button></div>
-</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">豪華房</h3><div class="room-meta">雪貂・狐獴</div></div><div class="room-price"><span class="currency">$</span>700<span class="unit">/日</span></div></div>
+</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">豪華房<span class="room-camera-label" title="此房型設有監視器，可依入住指引遠端查看畫面"><i class="fas fa-video" aria-hidden="true"></i>可遠端觀看</span></h3><div class="room-meta">雪貂・狐獴</div></div><div class="room-price"><span class="currency">$</span>700<span class="unit">/日</span></div></div>
 <div class="room-size">尺寸： 寬 170 x 深 120 x 高 117 cm</div>
 <div class="pet-badge"><i aria-hidden="true" class="fas fa-paw"></i><div>
 <div>第二隻 +$200/日 <span style="font-size:0.75rem; font-weight:500;">(上限三隻)</span></div>
@@ -272,7 +296,7 @@
 <article class="room-card"><div class="room-photo" data-gallery=""><div aria-label="雪貂・狐獴 別墅房房型照片，左右滑動可切換" class="slides" tabindex="0">
 <div class="slide"><img alt="壹伍雪貂・狐獴 別墅房 房型照片 1" decoding="async" loading="lazy" src="P1.jpg" title="點擊查看大圖"/></div>
 </div><span class="photo-tag">ROOM · 04</span>
-</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">別墅房</h3><div class="room-meta">雪貂・狐獴</div></div><div class="room-price"><span class="currency">$</span>800<span class="unit">/日</span></div></div>
+</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">別墅房<span class="room-camera-label" title="此房型設有監視器，可依入住指引遠端查看畫面"><i class="fas fa-video" aria-hidden="true"></i>可遠端觀看</span></h3><div class="room-meta">雪貂・狐獴</div></div><div class="room-price"><span class="currency">$</span>800<span class="unit">/日</span></div></div>
 <div class="room-size">尺寸： 寬 200 x 深 131 x 高 117 cm</div>
 <div class="pet-badge"><i aria-hidden="true" class="fas fa-paw"></i><div>
 <div>第二隻 +$250/日 <span style="font-size:0.75rem; font-weight:500;">(上限四隻)</span></div>
@@ -346,12 +370,15 @@
 <article class="room-card"><div class="room-photo" data-gallery=""><div aria-label="倉鼠・刺蝟 尚未開放房型照片，左右滑動可切換" class="slides" tabindex="0">
 <div class="slide"><img alt="壹伍倉鼠・刺蝟 尚未開放 房型照片 1" decoding="async" loading="lazy" src="M1.jpg" title="點擊查看大圖"/></div>
 <div class="slide"><img alt="壹伍倉鼠・刺蝟 尚未開放 房型照片 2" decoding="async" loading="lazy" src="M2.jpg" title="點擊查看大圖"/></div>
-</div><span class="photo-tag">COMING SOON</span>
+</div><span class="photo-tag">ROOM· 02</span></i>可遠端觀看</span>
 <div class="gallery-controls"><button aria-label="上一張照片" class="slide-prev" type="button">‹</button><span class="slide-count">1 / 2</span><button aria-label="下一張照片" class="slide-next" type="button">›</button></div>
-</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">尚未開放</h3><div class="room-meta">倉鼠・刺蝟</div></div><div class="room-price unavailable">尚未開放</div></div>
-<div class="room-size">尺寸： 待更新</div>
+</div><div class="room-info"><div class="room-top"><div><h3 class="room-title">倉鼠刺蝟別墅房</h3><div class="room-meta">倉鼠・刺蝟</div></div><div class="room-price unavailable">$400/日</div></div>
+<div class="room-size">尺寸： 寬80x深60x高55</div>
 <details class="spec-details"><summary>查看完整設備、餐食與入住提醒</summary><div class="spec-content"><ul class="feature-list mt-2">
-<li><i class="fas fa-vector-square"></i><span><strong>尺寸：</strong>待更新</span></li>
+<li><i class="fas fa-vector-square"></i><span><strong>尺寸：</strong>長 80 x 寬 60 x 高 55 cm</span></li>
+<li><i class="fas fa-door-open"></i><span><strong>放風：</strong>住宿期間不提供放風。</span></li>
+<li><i class="fas fa-couch"></i><span><strong>【倉鼠】設備：</strong>飼料盆、水瓶、躲避屋、22或26cm滾輪、紙棉、紙巾<br/><strong>【刺蝟】設備：</strong>飼料盆、水盆、布、26cm滾輪</span></li>
+<li><i class="fas fa-utensils"></i><span><strong>餐食：</strong>(倉鼠) 提供倉鼠飼料 / (刺蝟) 提供食蟲目飼料</span></li>
 </ul><div class="alert-box">
 <i class="fas fa-info-circle"></i>
 <div>
