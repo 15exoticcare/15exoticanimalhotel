@@ -189,6 +189,42 @@
 @media(max-width:345px){.sc-grid{grid-template-columns:1fr}.sc-card{min-height:125px}}
 @media(prefers-reduced-motion:reduce){.sc-card{transition:none}}
 
+
+/* 壹伍生態島 · 官網互動探索入口（不影響既有預約 UI） */
+.desktop-links .nav-island{color:var(--bluegray-deep);white-space:nowrap}
+.desktop-links .nav-island:hover{color:var(--brown-deep)}
+.mobile-menu .mobile-island-link{color:var(--bluegray-deep);background:#f0f5f5;border-radius:11px;padding-inline:12px;margin:7px 0}
+.eco-feature{position:relative;isolation:isolate;background:linear-gradient(120deg,#f4f4ee 0%,#eaf0ee 52%,#edf2f4 100%);overflow:hidden;border-top:1px solid #e0e8e5;border-bottom:1px solid #e0e7e5}
+.eco-feature:before{content:'';position:absolute;right:-220px;top:-260px;width:620px;height:620px;border-radius:50%;border:1px solid #cdd9d1;pointer-events:none}
+.eco-feature-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);align-items:center;gap:clamp(32px,4.7vw,78px)}
+.eco-feature-visual,.eco-feature-copy{min-width:0;position:relative}
+.eco-visual-link{display:block;position:relative;overflow:hidden;aspect-ratio:1.48;border:9px solid #fff;border-radius:29px;background:#dbe5dc;box-shadow:0 23px 60px rgba(54,75,64,.15);transition:transform .25s ease,box-shadow .25s ease}
+.eco-visual-link:hover{transform:translateY(-5px);box-shadow:0 28px 67px rgba(54,75,64,.2)}
+.eco-visual-link img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .6s ease}
+.eco-visual-link:hover img{transform:scale(1.035)}
+.eco-preview-label{position:absolute;left:15px;top:16px;background:rgba(255,255,255,.93);border:1px solid #ffffff95;border-radius:100px;padding:7px 14px;color:#485f55;font-weight:800;font-size:11px;letter-spacing:.03em;box-shadow:0 6px 15px #3c534521}
+.eco-visual-hint{display:flex;align-items:center;gap:10px;position:absolute;right:17px;bottom:17px;background:#486176ed;color:white;border-radius:100px;padding:9px 15px;font-size:12px;font-weight:800}
+.eco-visual-hint span{font-size:17px;line-height:1}
+.eco-visual-caption{display:flex;align-items:center;gap:8px;margin:14px 0 0 10px;font-size:11px;color:#6f7d77;line-height:1.6}
+.eco-caption-dot{display:inline-block;flex:none;width:6px;height:6px;background:#8ba69b;border-radius:50%}
+.eco-kicker{display:flex;align-items:center;gap:10px;color:#536b62;font-size:11px;font-weight:800;letter-spacing:.17em;margin-bottom:18px}
+.eco-kicker-icon{display:grid;place-items:center;height:28px;width:28px;border-radius:50%;background:#e0eae4;color:#526f61;font-size:14px;letter-spacing:normal}
+.eco-feature .headline{font-size:clamp(28px,3vw,43px);line-height:1.45;letter-spacing:.03em;margin:0 0 19px;color:#46574d}
+.eco-feature .headline span{color:#765e54}
+.eco-lead{color:#65736e;line-height:2.05;font-size:14px;max-width:445px;margin-bottom:28px}
+.eco-feature-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 31px;padding:18px 0;border-top:1px solid #cfded5;border-bottom:1px solid #cfded5}
+.eco-feature-stats>div{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:0}
+.eco-feature-stats strong{font-family:'DM Sans','Noto Sans TC',sans-serif;color:#536d61;font-size:27px;line-height:1.2;font-weight:700}
+.eco-feature-stats strong span{font-size:12px;margin-left:3px;font-family:'Noto Sans TC',sans-serif}
+.eco-feature-stats small{font-size:11px;color:#697771;font-weight:700;line-height:1.65}
+.eco-feature-button{background:#506c60;color:#fff;box-shadow:0 9px 25px rgba(64,94,76,.22)}
+.eco-feature-button:hover{background:#3e594e}
+.eco-feature-note{font-size:11px;color:#79877e;margin:15px 0 0;letter-spacing:.035em}
+@media(max-width:1250px) and (min-width:881px){.desktop-links{display:none}.menu-toggle{display:flex}.mobile-menu{display:none;flex-direction:column;padding:5px 24px 16px;border-top:1px solid var(--line)}.mobile-menu.open{display:flex}.mobile-menu a{display:block;padding:13px 12px;border-bottom:1px solid var(--line);font-size:14px;font-weight:700}}
+@media(max-width:960px){.eco-feature-grid{gap:28px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.eco-feature .headline{font-size:clamp(26px,3.3vw,34px)}.eco-lead{font-size:13px}.eco-feature-stats{gap:7px}.eco-feature-stats strong{font-size:24px}}
+@media(max-width:700px){.eco-feature-grid{grid-template-columns:1fr;gap:28px}.eco-feature-visual{order:1}.eco-feature-copy{order:2}.eco-visual-link{border-width:6px;border-radius:22px;aspect-ratio:1.55}.eco-preview-label{font-size:10px;top:10px;left:10px;padding:6px 10px}.eco-visual-hint{font-size:11px;bottom:12px;right:12px;padding:8px 12px}.eco-visual-caption{font-size:10px;margin-left:5px}.eco-kicker{font-size:10px;margin-bottom:12px}.eco-feature .headline{font-size:clamp(26px,7.6vw,34px);margin-bottom:13px}.eco-lead{font-size:13px;line-height:1.95;margin-bottom:21px}.eco-feature-stats{margin-bottom:23px}.eco-feature-button{width:100%}.eco-feature-note{text-align:center}}
+@media(max-width:365px){.eco-feature-stats strong{font-size:23px}.eco-feature-stats small{font-size:10px}.eco-visual-hint{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.eco-visual-link,.eco-visual-link img{transition:none}}
 </style>
 <style>
 /* 壹伍 2.4｜預約與諮詢分流 UI */
@@ -216,9 +252,9 @@
 <div class="top-note"><div class="wrap"><span>✳ 2027 農曆春節住宿資訊・房價與入住規範</span><a href="spring-2027.html">查看春節專屬公告 ↗</a></div></div>
 <header class="site-header"><div class="wrap header-inner">
 <a aria-label="壹伍非犬貓旅宿首頁" class="brand" href="index.html"><img alt="壹伍品牌標誌" class="brand-symbol" height="48" src="image_6.png" width="48"/><span><span class="brand-title">壹伍非犬貓旅宿</span><span class="brand-caption" style="display:block">15 EXOTIC ANIMAL HOTEL</span></span></a>
-<nav aria-label="主要導覽" class="desktop-links"><a href="price.html">住宿房型</a><a href="#features">照護特色</a><a href="#special-care">特殊照護</a><a href="#gallery">住宿日常</a><a href="rules.html">入住須知</a><a href="care.html">兔子住宿指南</a><a href="shop.html">特寵選物</a></nav>
+<nav aria-label="主要導覽" class="desktop-links"><a href="price.html">住宿房型</a><a href="#features">照護特色</a><a href="#special-care">特殊照護</a><a href="#gallery">住宿日常</a><a href="rules.html">入住須知</a><a href="care.html">兔子住宿指南</a><a href="shop.html">特寵選物</a><a class="nav-island" href="https://island.15exoticanimalhotel.com.tw/" rel="noopener noreferrer" target="_blank">探索生態島</a></nav>
 <div class="header-actions"><a class="btn btn-primary" href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">立即線上預約 ↗</a><a class="home-header-consult" href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 諮詢</a><button aria-controls="mobile-menu" aria-expanded="false" aria-label="開啟選單" class="menu-toggle" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div>
-</div><nav aria-label="手機選單" class="mobile-menu" id="mobile-menu"><a href="price.html">住宿房型與房價</a><a href="#features">照護特色</a><a href="#special-care">特殊照護服務</a><a href="#gallery">住宿日常</a><a href="#about">關於壹伍</a><a href="price.html">完整房型介紹</a><a href="rules.html">入住須知</a><a href="spring-2027.html">2027 春節住宿公告</a><a href="care.html">兔子住宿與照護指南</a><a href="shop.html">特寵選物</a><a href="#contact">聯絡與預約</a><a href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">線上預約住宿 ↗</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 官方諮詢 ↗</a></nav></header>
+</div><nav aria-label="手機選單" class="mobile-menu" id="mobile-menu"><a href="price.html">住宿房型與房價</a><a href="#features">照護特色</a><a href="#special-care">特殊照護服務</a><a href="#gallery">住宿日常</a><a href="#about">關於壹伍</a><a href="price.html">完整房型介紹</a><a href="rules.html">入住須知</a><a href="spring-2027.html">2027 春節住宿公告</a><a href="care.html">兔子住宿與照護指南</a><a href="shop.html">特寵選物</a><a class="mobile-island-link" href="https://island.15exoticanimalhotel.com.tw/" rel="noopener noreferrer" target="_blank">🌿 探索壹伍生態島（互動圖鑑）</a><a href="#contact">聯絡與預約</a><a href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">線上預約住宿 ↗</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 官方諮詢 ↗</a></nav></header>
 <main>
 <section aria-labelledby="hero-title" class="hero"><div class="wrap hero-grid"><div class="hero-copy">
 <div class="hero-eyebrow">NEW TAIPEI · TAISHAN · EXOTIC PET HOTEL</div>
@@ -272,6 +308,32 @@
 <button aria-label="放大查看館內照片" class="gallery-tile" data-caption="壹伍館內空間" data-photo="about1.jpg" type="button"><img alt="旅館室內環境" loading="lazy" src="about1.jpg"/><span>安心住宿空間</span></button>
 <button aria-label="放大查看住宿環境照片" class="gallery-tile" data-caption="旅館環境實景" data-photo="Z4.jpg" type="button"><img alt="壹伍非犬貓旅宿館內環境" loading="lazy" src="Z4.jpg"/><span>乾淨舒適的日常</span></button>
 </div><p class="gallery-note">照片使用原網站既有實景圖片；點擊即可放大查看。</p></div></section>
+
+<!-- 壹伍生態島｜獨立互動探索網站：主官網保留住宿預約優先順序 -->
+<section class="eco-feature section-space" id="eco-island" aria-labelledby="eco-island-title">
+ <div class="wrap eco-feature-grid">
+  <div class="eco-feature-visual">
+   <a class="eco-visual-link" href="https://island.15exoticanimalhotel.com.tw/" target="_blank" rel="noopener noreferrer" aria-label="開啟壹伍生態島互動探索網站（另開新視窗）">
+    <img src="eco-island-preview.webp" alt="壹伍生態島實際互動地圖畫面，呈現中央旅宿、立體微縮動物生活區與蜿蜒小徑" width="937" height="618" loading="lazy" decoding="async"/>
+    <span class="eco-preview-label">壹伍生態島 · 互動探索世界</span>
+    <span class="eco-visual-hint" aria-hidden="true">探索地圖 <span>↗</span></span>
+   </a>
+   <div class="eco-visual-caption"><span class="eco-caption-dot" aria-hidden="true"></span>非實際住宿場景</div>
+  </div>
+  <div class="eco-feature-copy">
+   <div class="eco-kicker"><span class="eco-kicker-icon" aria-hidden="true">✦</span> EXPLORE THE 15 LITTLE WORLD</div>
+   <h2 class="headline" id="eco-island-title">不只認識壹伍，<br/><span>也認識每一種特別。</span></h2>
+   <p class="eco-lead">走進壹伍生態島，跟著小小保母漫遊可愛的立體動物世界。點擊動物、發現有趣知識，還能收集自己的探索圖鑑。</p>
+   <div class="eco-feature-stats" aria-label="生態島探索內容">
+    <div><strong>09<span>種</span></strong><small>特寵生活區</small></div>
+    <div><strong>07<span>種</span></strong><small>驚喜探索彩蛋</small></div>
+    <div><strong>16<span>種</span></strong><small>動物探索圖鑑</small></div>
+   </div>
+   <a class="btn eco-feature-button" href="https://island.15exoticanimalhotel.com.tw/" target="_blank" rel="noopener noreferrer">開始探索壹伍生態島 <span aria-hidden="true">↗</span></a>
+   <p class="eco-feature-note">自由探索・認識動物・收集圖鑑　<span aria-hidden="true">✦</span>　免費開放</p>
+  </div>
+ </div>
+</section>
 <section class="story section-space" id="about"><div class="wrap story-layout"><div class="story-image"><img alt="壹伍非犬貓旅宿的實際住宿空間" loading="lazy" src="hero.jpg"/></div><div class="story-copy"><div class="eyebrow">OUR STORY</div><h2 class="headline">因為懂得牽掛，<br/>所以更在意每個細節。</h2><p class="story-quote">「希望每位孩子，都能像回家一樣自在、安心。」</p><p>「壹伍」這個名字，來自創辦人的名字諧音，也藏著曾經陪伴成長的天竺鼠與小太陽鸚鵡的故事。</p><p>累積約 10 年特寵臨床助理與照護相關經驗後，我們在新北泰山與新莊交界成立這個專屬非犬貓的住宿空間。讓家長出門時，也能知道寶貝被認真照顧著。</p><a class="link-arrow" href="#contact">認識壹伍，預約參觀 ↗</a></div></div></section>
 <section class="review-banner"><div class="wrap review-layout"><div class="review-text"><div class="eyebrow">WORDS FROM FAMILIES</div><h2 class="headline">選擇旅館前，先看看真實家長的回饋。</h2><p>住宿經驗值得被認真了解；前往 Google 地圖，查看完整評價與旅館照片。</p></div><a class="btn btn-light" href="https://maps.app.goo.gl/1NyjJX9GdWeJw37p8" rel="noopener" target="_blank">查看 Google 商家與評論 ↗</a></div></section>
 <section class="faq section-space" id="faq"><div class="wrap faq-layout"><div class="faq-intro"><div class="eyebrow">BEFORE YOUR STAY</div><h2 class="headline">住宿前，你可能想知道。</h2><p>從接送、飲食到特殊照護，常見問題都整理在這裡。完整規章請以最新「入住須知」為準。</p><a class="link-arrow" href="rules.html">閱讀完整入住須知 ↗</a></div><div class="faq-list">
@@ -320,7 +382,7 @@
 </div></div></section>
 <section class="contact" id="contact"><div class="wrap contact-layout"><div><div class="eyebrow light">YOUR NEXT LITTLE GETAWAY</div><h2 class="headline">期待在壹伍，<br/>認識你家的小小旅客。</h2><p>已準備好預約？可直接進入線上表單選擇日期與房型。若需特殊照護評估、參觀或其他問題，請使用 LINE 官方諮詢。</p><div class="contact-actions"><a class="btn btn-forest" href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">進入預約表單 ↗</a><a class="btn btn-light" href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 官方諮詢 ↗</a><a class="btn btn-light" href="rules.html">查看入住須知 ↗</a></div></div><div class="contact-info"><dl><div><dt>ADDRESS｜位置</dt><dd>新北市泰山區莊泰路 1627 號 1 樓<br/><small>鄰近新莊、五股、林口，歡迎雙北飼主預約</small></dd></div><div><dt>OPEN HOURS｜接待時段</dt><dd>週一、週二、週五：13:00–17:00／18:00–20:00<br/>週六、週日：11:00–17:00／18:00–20:00<br/><small>週三、週四公休；公休仍可預約住退宿</small></dd></div><div><dt>GOOGLE MAPS｜路線</dt><dd><a href="https://maps.app.goo.gl/1NyjJX9GdWeJw37p8" rel="noopener" target="_blank">開啟 Google 地圖導航 ↗</a></dd></div><div><dt>EMAIL｜聯絡</dt><dd><a href="mailto:15exoticcare@gmail.com">15exoticcare@gmail.com</a></dd></div></dl></div></div></section>
 </main>
-<footer class="footer"><div class="wrap"><div class="footer-main"><div><h2>壹伍非犬貓旅宿</h2><p>15 EXOTIC ANIMAL HOTEL<br/>每個特別的寶貝，都值得被溫柔照顧。</p></div><nav aria-label="頁尾導覽" class="footer-links"><a href="price.html">房型與收費</a><a href="rules.html">入住須知</a><a href="#special-care">特殊照護</a><a href="spring-2027.html">2027 春節公告</a><a href="care.html">兔子住宿指南</a><a href="shop.html">特寵選物</a><a href="https://www.facebook.com/share/1HYyhoLmah/?mibextid=wwXIfr" rel="noopener" target="_blank">Facebook</a><a href="https://www.instagram.com/15exoticcare" rel="noopener" target="_blank">Instagram</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener" target="_blank">LINE</a></nav></div><div class="footer-bottom"><span>© 2026 壹伍非犬貓旅宿・壹伍企業社｜統一編號 61245869</span><span>新北市泰山區｜特殊寵物專屬住宿照護</span></div></div></footer>
+<footer class="footer"><div class="wrap"><div class="footer-main"><div><h2>壹伍非犬貓旅宿</h2><p>15 EXOTIC ANIMAL HOTEL<br/>每個特別的寶貝，都值得被溫柔照顧。</p></div><nav aria-label="頁尾導覽" class="footer-links"><a href="price.html">房型與收費</a><a href="rules.html">入住須知</a><a href="#special-care">特殊照護</a><a href="spring-2027.html">2027 春節公告</a><a href="care.html">兔子住宿指南</a><a href="shop.html">特寵選物</a><a href="https://island.15exoticanimalhotel.com.tw/" rel="noopener noreferrer" target="_blank">壹伍生態島</a><a href="https://www.facebook.com/share/1HYyhoLmah/?mibextid=wwXIfr" rel="noopener" target="_blank">Facebook</a><a href="https://www.instagram.com/15exoticcare" rel="noopener" target="_blank">Instagram</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener" target="_blank">LINE</a></nav></div><div class="footer-bottom"><span>© 2026 壹伍非犬貓旅宿・壹伍企業社｜統一編號 61245869</span><span>新北市泰山區｜特殊寵物專屬住宿照護</span></div></div></footer>
 <!-- 外側浮動快捷連結：電腦固定顯示，手機輕觸展開 -->
 <aside aria-label="壹伍社群與快捷連結" class="quick-dock" data-open="false" id="quick-dock">
 <nav aria-label="快速聯絡與地圖" class="quick-dock-links" id="quick-dock-links">
