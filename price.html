@@ -62,6 +62,47 @@
 @media (max-width:420px){
   .room-camera-label{margin-left:4px;padding:3px 7px;font-size:10px;}
 }
+
+/* 倉鼠・刺蝟：自備籠房型及倉鼠自備墊料優惠（僅此區塊） */
+#section-hamster .hamster-bedding-perk{display:flex;align-items:flex-start;gap:8px;background:#f2f6f8;color:#486176;border:1px solid #dbe5ec;border-radius:10px;padding:10px 12px;font-size:12px;line-height:1.65;margin:0 0 12px}
+#section-hamster .hamster-bedding-perk i{margin-top:4px;font-size:12px;flex-shrink:0}
+#section-hamster .hamster-bedding-perk strong{font-weight:800}
+#section-hamster .hamster-bedding-perk small{font-size:11px;color:#607789}
+#section-hamster .self-cage-photo{height:272px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:linear-gradient(135deg,#f3e6df 0%,#f8f4ee 48%,#e4edf2 100%);overflow:hidden}
+#section-hamster .self-cage-illustration{height:146px;width:230px;max-width:75%;margin-top:8px}
+#section-hamster .self-cage-illustration svg{width:100%;height:100%;filter:drop-shadow(0 10px 10px #76594f13)}
+#section-hamster .self-cage-photo-copy{display:flex;flex-direction:column;text-align:center;gap:2px;color:#76594f}
+#section-hamster .self-cage-photo-copy span{font-size:10px;font-weight:800;letter-spacing:.14em;color:#486176}
+#section-hamster .self-cage-photo-copy strong{font-size:17px;letter-spacing:.06em}
+#section-hamster .self-cage-photo-copy small{font-size:11px;color:#756e6c}
+#section-hamster .own-cage-tiers{display:flex;flex-direction:column;border:1px solid #e2e7e9;border-radius:11px;overflow:hidden;margin:0 0 12px}
+#section-hamster .own-cage-tiers>div{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 12px;background:#fbfcfd;border-bottom:1px solid #e2e7e9;font-size:12px;color:#54616a}
+#section-hamster .own-cage-tiers>div:nth-child(even){background:#f1f5f7}
+#section-hamster .own-cage-tiers>div:last-child{border-bottom:0}
+#section-hamster .own-cage-tiers strong{white-space:nowrap;color:#76594f;font-size:14px}
+#section-hamster .own-cage-tiers small{font-size:10px;font-weight:500;color:#8b7b77}
+@media(max-width:610px){#section-hamster .self-cage-photo{height:232px}#section-hamster .self-cage-illustration{height:123px}#section-hamster .own-cage-tiers>div{padding:9px 10px;font-size:11px}#section-hamster .own-cage-tiers strong{font-size:13px}}
+@media(max-width:355px){#section-hamster .own-cage-tiers>div{gap:6px}#section-hamster .own-cage-tiers>div span{max-width:66%}}
+
+
+/* 2.4.3 鸚鵡／大白鼠／蜜袋鼯自備籠房型：尺寸確認後由 LINE 個別報價 */
+.custom-own-cage-card .custom-cage-photo{height:272px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;overflow:hidden;background:linear-gradient(135deg,#e7edf1 0%,#faf7f2 52%,#f1e1da 100%)}
+.custom-own-cage-card .custom-cage-art{width:230px;max-width:74%;height:143px;margin-top:9px}
+.custom-own-cage-card .custom-cage-art svg{width:100%;height:100%;filter:drop-shadow(0 9px 14px #48617618)}
+.custom-own-cage-card .custom-cage-copy{text-align:center;display:flex;flex-direction:column;gap:2px;color:var(--brown-deep)}
+.custom-own-cage-card .custom-cage-copy span{font-size:10px;letter-spacing:.15em;font-weight:800;color:var(--blue-deep)}
+.custom-own-cage-card .custom-cage-copy strong{font-size:17px;letter-spacing:.04em}
+.custom-own-cage-card .custom-cage-copy small{font-size:11px;color:var(--muted)}
+.custom-own-cage-card .custom-cage-quote{white-space:normal;max-width:132px;text-align:right;color:var(--brown-deep);font-size:17px;line-height:1.4}
+.custom-own-cage-card .custom-cage-quote small{display:block;margin-top:5px;font-size:11px;font-weight:500;color:var(--muted)}
+.custom-own-cage-card .room-top{align-items:flex-start}
+.custom-own-cage-card .custom-cage-note{background:#eef3f6;border:1px solid #dce6ed;border-radius:10px;padding:12px 13px;color:var(--blue-deep);font-size:12px;line-height:1.8;margin-bottom:12px}
+.custom-own-cage-card .custom-cage-note strong{font-weight:800}
+.custom-own-cage-card .room-bottom-links .quote-cta{background:#76594f!important;color:#fff!important;border-color:#76594f!important}
+.custom-own-cage-card .room-bottom-links .quote-book-later{font-size:11px;color:var(--blue-deep)}
+@media(max-width:610px){.custom-own-cage-card .custom-cage-photo{height:232px}.custom-own-cage-card .custom-cage-art{height:117px}.custom-own-cage-card .custom-cage-quote{font-size:15px;max-width:122px}}
+@media(max-width:355px){.custom-own-cage-card .custom-cage-quote{font-size:14px;max-width:112px}.custom-own-cage-card .room-top{gap:6px}}
+
 </style>
 <style>
 /* 壹伍 2.4｜預約與諮詢分流 UI */
@@ -317,7 +358,7 @@
 <div class="room-bottom-links"><a class="room-book" href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">線上預約 ↗</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 詢問此房型 ↗</a></div></div></article>
 </div>
 </section>
-<section aria-labelledby="heading-section-hamster" class="category-section" id="section-hamster"><div class="section-intro"><div><span class="eyebrow">HAMSTER · HEDGEHOG</span><h2 id="heading-section-hamster">倉鼠・刺蝟</h2><p>從日常活動空間到熟悉的用品，細節都可以在房型卡片中查看。</p></div><div class="section-count"><strong>03</strong><span>3 種房型</span></div></div>
+<section aria-labelledby="heading-section-hamster" class="category-section" id="section-hamster"><div class="section-intro"><div><span class="eyebrow">HAMSTER · HEDGEHOG</span><h2 id="heading-section-hamster">倉鼠・刺蝟</h2><p>可選擇館內提供的房型，或依自備籠具的長邊尺寸入住；倉鼠自備墊料另有每日優惠。</p></div><div class="section-count"><strong>03</strong><span>4 種房型</span></div></div>
 <div class="room-grid">
 <article class="room-card"><div class="room-photo" data-gallery=""><div aria-label="倉鼠・刺蝟 標準型房型照片，左右滑動可切換" class="slides" tabindex="0">
 <div class="slide"><img alt="壹伍倉鼠・刺蝟 標準型 房型照片 1" decoding="async" loading="lazy" src="I1.jpg" title="點擊查看大圖"/></div>
@@ -327,6 +368,7 @@
 <div class="gallery-controls"><button aria-label="上一張照片" class="slide-prev" type="button">‹</button><span class="slide-count">1 / 3</span><button aria-label="下一張照片" class="slide-next" type="button">›</button></div>
 </div><div class="room-info"><div class="room-top"><div><h3 class="room-title">標準型</h3><div class="room-meta">倉鼠・刺蝟</div></div><div class="room-price"><span class="currency">$</span>250<span class="unit">/日</span></div></div>
 <div class="room-size">尺寸： 長 62 x 寬 42 x 高 32 cm</div>
+<div class="hamster-bedding-perk"><i class="fas fa-tag" aria-hidden="true"></i><span><strong>倉鼠自備墊料優惠</strong> −NT$10／日 <small>（僅限倉鼠，刺蝟不適用）</small></span></div>
 <details class="spec-details"><summary>查看完整設備、餐食與入住提醒</summary><div class="spec-content"><ul class="feature-list mt-2">
 <li><i class="fas fa-vector-square"></i><span><strong>尺寸：</strong>長 62 x 寬 42 x 高 32 cm</span></li>
 <li><i class="fas fa-door-open"></i><span><strong>放風：</strong>住宿期間不提供放風。</span></li>
@@ -351,6 +393,7 @@
 <div class="gallery-controls"><button aria-label="上一張照片" class="slide-prev" type="button">‹</button><span class="slide-count">1 / 3</span><button aria-label="下一張照片" class="slide-next" type="button">›</button></div>
 </div><div class="room-info"><div class="room-top"><div><h3 class="room-title">豪華型</h3><div class="room-meta">倉鼠・刺蝟</div></div><div class="room-price"><span class="currency">$</span>350<span class="unit">/日</span></div></div>
 <div class="room-size">尺寸： 長 88 x 寬 50 x 高 44 cm</div>
+<div class="hamster-bedding-perk"><i class="fas fa-tag" aria-hidden="true"></i><span><strong>倉鼠自備墊料優惠</strong> −NT$10／日 <small>（僅限倉鼠，刺蝟不適用）</small></span></div>
 <details class="spec-details"><summary>查看完整設備、餐食與入住提醒</summary><div class="spec-content"><ul class="feature-list mt-2">
 <li><i class="fas fa-vector-square"></i><span><strong>尺寸：</strong>長 88 x 寬 50 x 高 44 cm</span></li>
 <li><i class="fas fa-door-open"></i><span><strong>放風：</strong>住宿期間不提供放風。</span></li>
@@ -370,10 +413,11 @@
 <article class="room-card"><div class="room-photo" data-gallery=""><div aria-label="倉鼠・刺蝟 尚未開放房型照片，左右滑動可切換" class="slides" tabindex="0">
 <div class="slide"><img alt="壹伍倉鼠・刺蝟 尚未開放 房型照片 1" decoding="async" loading="lazy" src="M1.jpg" title="點擊查看大圖"/></div>
 <div class="slide"><img alt="壹伍倉鼠・刺蝟 尚未開放 房型照片 2" decoding="async" loading="lazy" src="M2.jpg" title="點擊查看大圖"/></div>
-</div><span class="photo-tag">ROOM· 02</span></i>可遠端觀看</span>
+</div><span class="photo-tag">ROOM · 03</span>
 <div class="gallery-controls"><button aria-label="上一張照片" class="slide-prev" type="button">‹</button><span class="slide-count">1 / 2</span><button aria-label="下一張照片" class="slide-next" type="button">›</button></div>
 </div><div class="room-info"><div class="room-top"><div><h3 class="room-title">倉鼠刺蝟別墅房</h3><div class="room-meta">倉鼠・刺蝟</div></div><div class="room-price unavailable">$400/日</div></div>
 <div class="room-size">尺寸： 寬80x深60x高55</div>
+<div class="hamster-bedding-perk"><i class="fas fa-tag" aria-hidden="true"></i><span><strong>倉鼠自備墊料優惠</strong> −NT$10／日 <small>（僅限倉鼠，刺蝟不適用）</small></span></div>
 <details class="spec-details"><summary>查看完整設備、餐食與入住提醒</summary><div class="spec-content"><ul class="feature-list mt-2">
 <li><i class="fas fa-vector-square"></i><span><strong>尺寸：</strong>長 80 x 寬 60 x 高 55 cm</span></li>
 <li><i class="fas fa-door-open"></i><span><strong>放風：</strong>住宿期間不提供放風。</span></li>
@@ -389,9 +433,49 @@
 </div>
 </div></div></details>
 <div class="room-bottom-links"><a class="room-book" href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">線上預約 ↗</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 詢問此房型 ↗</a></div></div></article>
+<article class="room-card self-cage-card" id="hamster-own-cage">
+<div class="room-photo self-cage-photo" aria-label="倉鼠與刺蝟自備籠住宿，依籠具長度分三級計價">
+  <div class="self-cage-illustration" aria-hidden="true">
+    <svg viewBox="0 0 224 154" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <rect x="22" y="26" width="180" height="110" rx="13" fill="#fffdfb" stroke="#879aa9" stroke-width="3"/>
+      <path d="M37 30V130M52 30V130M67 30V130M82 30V130M97 30V130M112 30V130M127 30V130M142 30V130M157 30V130M172 30V130M187 30V130" stroke="#879aa9" stroke-opacity=".6" stroke-width="2"/>
+      <path d="M22 65H202M22 104H202" stroke="#879aa9" stroke-opacity=".6" stroke-width="2"/>
+      <path d="M38 20H186" stroke="#76594f" stroke-linecap="round" stroke-width="5"/>
+      <circle cx="112" cy="103" r="26" fill="#e6d6ce" stroke="#b6948b" stroke-width="2"/>
+      <circle cx="105" cy="99" r="2.8" fill="#76594f"/><circle cx="119" cy="99" r="2.8" fill="#76594f"/>
+      <path d="M110 109q2 3 4 0" stroke="#76594f" stroke-linecap="round" stroke-width="2"/>
+      <path d="M88 94l-9 -10q-6 -10 5 -12q9 0 13 11M136 94l9 -10q6 -10 -5 -12q-9 0 -13 11" fill="#e6d6ce" stroke="#b6948b" stroke-width="2"/>
+    </svg>
+  </div>
+  <div class="self-cage-photo-copy"><span>BRING YOUR OWN CAGE</span><strong>熟悉的家，也能一起入住</strong><small>自備籠具 · 依長邊尺寸計價</small></div>
+  <span class="photo-tag">ROOM · 04</span>
+</div>
+<div class="room-info">
+  <div class="room-top"><div><h3 class="room-title">自備籠</h3><div class="room-meta">倉鼠・刺蝟</div></div><div class="room-price"><span class="currency">$</span>200<span class="unit">起／日</span></div></div>
+  <div class="room-size">依自備籠具<strong>長邊尺寸</strong>計價，最長 90 公分（含）</div>
+  <div class="own-cage-tiers" aria-label="自備籠住宿每日價格">
+    <div><span>長邊 65 cm（含）以下</span><strong>NT$200 <small>／日</small></strong></div>
+    <div><span>長邊超過 65、75 cm（含）以下</span><strong>NT$250 <small>／日</small></strong></div>
+    <div><span>長邊超過 75、90 cm（含）以下</span><strong>NT$300 <small>／日</small></strong></div>
+  </div>
+  <div class="hamster-bedding-perk"><i class="fas fa-tag" aria-hidden="true"></i><span><strong>倉鼠自備墊料優惠</strong> −NT$10／日 <small>（自備籠也適用，刺蝟不適用）</small></span></div>
+  <details class="spec-details"><summary>查看自備籠尺寸與入住提醒</summary>
+    <div class="spec-content"><ul class="feature-list">
+      <li><i class="fas fa-ruler-combined" aria-hidden="true"></i><span><strong>尺寸計費：</strong>依自備籠長邊分為 65、75、90 公分三種價格級距；超過 90 公分請先向壹伍確認是否能接待。</span></li>
+      <li><i class="fas fa-clipboard-list" aria-hidden="true"></i><span><strong>預約必填：</strong>選擇自備籠後，須在預約表單填寫實際<strong>長、寬、高</strong>尺寸，以利入住前確認。</span></li>
+      <li><i class="fas fa-box-open" aria-hidden="true"></i><span><strong>自備用品：</strong>請攜帶原有籠具及寶貝熟悉的用品；接待與安置方式以現場安全評估為準。</span></li>
+      <li><i class="fas fa-receipt" aria-hidden="true"></i><span><strong>倉鼠墊料優惠：</strong>倉鼠選擇「自備墊料」可再折 NT$10／日，自備籠房型亦適用；刺蝟不適用。</span></li>
+    </ul><div class="alert-box"><div><strong>自備籠入住提醒</strong><ul>
+      <li>網頁列示一般住宿價格，實際費用以預約系統結算及訂單審核為準。</li>
+      <li>本頁僅介紹房價；尺寸須到線上預約表單填寫，並非在此頁送出。</li>
+    </ul></div></div></div>
+  </details>
+  <div class="room-bottom-links"><a class="room-book" href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">線上預約 ↗</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 詢問此房型 ↗</a></div>
+</div>
+</article>
 </div>
 </section>
-<section aria-labelledby="heading-section-bird" class="category-section" id="section-bird"><div class="section-intro"><div><span class="eyebrow">BIRD STAY</span><h2 id="heading-section-bird">鸚鵡・鳥類</h2><p>鳥寶入住前請先了解健康檢驗、籠具與日常照護相關規範。</p></div><div class="section-count"><strong>04</strong><span>3 種房型</span></div></div>
+<section aria-labelledby="heading-section-bird" class="category-section" id="section-bird"><div class="section-intro"><div><span class="eyebrow">BIRD STAY</span><h2 id="heading-section-bird">鸚鵡・鳥類</h2><p>鳥寶入住前請先了解健康檢驗、籠具與日常照護相關規範；自備籠可事先 LINE 詢問報價。</p></div><div class="section-count"><strong>04</strong><span>4 種房型</span></div></div>
 <div class="room-grid">
 <article class="room-card"><div class="room-photo" data-gallery=""><div aria-label="鸚鵡・鳥類 標準房房型照片，左右滑動可切換" class="slides" tabindex="0">
 <div class="slide"><img alt="壹伍鸚鵡・鳥類 標準房 房型照片 1" decoding="async" loading="lazy" src="E1.jpg" title="點擊查看大圖"/></div>
@@ -476,9 +560,41 @@
 </div>
 </div></div></details>
 <div class="room-bottom-links"><a class="room-book" href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">線上預約 ↗</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 詢問此房型 ↗</a></div></div></article>
+<article class="room-card custom-own-cage-card" id="bird-own-cage">
+  <div class="room-photo custom-cage-photo" aria-label="鸚鵡・鳥類自備籠住宿，籠具示意圖；價格依尺寸透過 LINE 詢問">
+    <div class="custom-cage-art"><svg viewBox="0 0 236 154" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="籠具示意圖（非實際房型照片）">
+  <rect x="25" y="31" width="186" height="108" rx="12" fill="#fffdfa" stroke="#879aa9" stroke-width="3"/>
+  <path d="M42 34V135 M60 34V135 M78 34V135 M96 34V135 M114 34V135 M132 34V135 M150 34V135 M168 34V135 M186 34V135 M204 34V135" stroke="#a5b5c0" stroke-width="1.9" stroke-opacity=".75"/>
+  <path d="M27 76H209 M27 104H209" stroke="#879aa9" stroke-width="2" stroke-opacity=".65"/>
+  <path d="M48 27H189" stroke="#76594f" stroke-width="5" stroke-linecap="round"/>
+  <rect x="101" y="94" width="37" height="44" rx="6" fill="#dfc6b8" stroke="#b6948b" stroke-width="2"/>
+  <circle cx="130" cy="113" r="2.5" fill="#76594f"/>
+  <path d="M63 50q10 -14 20 0 M155 52q10 -13 20 0" stroke="#d1b7ab" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="190" cy="21" r="11" fill="#edf2f5" stroke="#879aa9" stroke-width="2"/><path d="M190 15v12M184 21h12" stroke="#486176" stroke-width="2"/>
+</svg></div>
+    <div class="custom-cage-copy"><span>BRING YOUR OWN CAGE</span><strong>把熟悉的家一起帶來</strong><small>自備籠具・依尺寸個別報價</small></div>
+    <span class="photo-tag">ROOM · 04</span>
+  </div>
+  <div class="room-info">
+    <div class="room-top"><div><h3 class="room-title">自備籠</h3><div class="room-meta">鸚鵡・鳥類</div></div><div class="room-price custom-cage-quote">LINE 詢問報價<small>依籠具尺寸及條件評估</small></div></div>
+    <div class="room-size"><strong>籠具尺寸：</strong>請提供實際長、寬、高（cm）及照片</div>
+    <div class="custom-cage-note"><strong>費用需事先確認</strong>｜請透過 LINE 傳送籠具尺寸與照片，由壹伍評估接待條件並提供報價。</div>
+    <details class="spec-details"><summary>查看自備籠入住提醒</summary>
+      <div class="spec-content"><ul class="feature-list">
+        <li><i class="fas fa-ruler-combined" aria-hidden="true"></i><span><strong>請提供尺寸：</strong>實際長、寬、高（公分）及籠具外觀照片，以利評估。</span></li>
+        <li><i class="fas fa-comment-dots" aria-hidden="true"></i><span><strong>報價方式：</strong>依籠具尺寸、物種及住宿需求，透過 LINE 確認每日費用。</span></li>
+        <li><i class="fas fa-shield-alt" aria-hidden="true"></i><span><strong>住宿安排：</strong>須先確認籠具是否適用與可否接待，再進行預約。</span></li>
+      </ul><div class="alert-box"><div><strong>入住前請先聯絡壹伍</strong><ul>
+        <li>鸚鵡首次入住仍須依現行鳥類健康檢驗與入住規範辦理；自備籠不代表免除相關條件。</li>
+        <li>自備籠價格不套用倉鼠／刺蝟的固定尺寸價目表；以 LINE 個別報價為準。</li>
+      </ul></div></div></div>
+    </details>
+    <div class="room-bottom-links"><a class="room-book quote-cta" href="https://line.me/R/ti/p/@903dmtve" target="_blank" rel="noopener noreferrer">LINE 詢問報價 ↗</a><a class="quote-book-later" href="https://liff.line.me/2011847868-fsmJNfk2" target="_blank" rel="noopener noreferrer">確認報價後線上預約 ↗</a></div>
+  </div>
+</article>
 </div>
 </section>
-<section aria-labelledby="heading-section-rat" class="category-section" id="section-rat"><div class="section-intro"><div><span class="eyebrow">RAT · SUGAR GLIDER</span><h2 id="heading-section-rat">大白鼠・蜜袋鼯</h2><p>住宿設備與自備用品依房型而異，預約前請先確認完整說明。</p></div><div class="section-count"><strong>05</strong><span>3 種房型</span></div></div>
+<section aria-labelledby="heading-section-rat" class="category-section" id="section-rat"><div class="section-intro"><div><span class="eyebrow">RAT · SUGAR GLIDER</span><h2 id="heading-section-rat">大白鼠・蜜袋鼯</h2><p>住宿設備與自備用品依房型而異；自備籠請先提供尺寸並透過 LINE 詢問報價。</p></div><div class="section-count"><strong>05</strong><span>4 種房型</span></div></div>
 <div class="room-grid">
 <article class="room-card"><div class="room-photo" data-gallery=""><div aria-label="大白鼠・蜜袋鼯 大白鼠籠房型照片，左右滑動可切換" class="slides" tabindex="0">
 <div class="slide"><img alt="壹伍大白鼠・蜜袋鼯 大白鼠籠 房型照片 1" decoding="async" loading="lazy" src="K1.jpg" title="點擊查看大圖"/></div>
@@ -551,6 +667,38 @@
 </div>
 </div></div></details>
 <div class="room-bottom-links"><a class="room-book" href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">線上預約 ↗</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 詢問此房型 ↗</a></div></div></article>
+<article class="room-card custom-own-cage-card" id="rat-own-cage">
+  <div class="room-photo custom-cage-photo" aria-label="大白鼠・蜜袋鼯自備籠住宿，籠具示意圖；價格依尺寸透過 LINE 詢問">
+    <div class="custom-cage-art"><svg viewBox="0 0 236 154" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="籠具示意圖（非實際房型照片）">
+  <rect x="25" y="31" width="186" height="108" rx="12" fill="#fffdfa" stroke="#879aa9" stroke-width="3"/>
+  <path d="M42 34V135 M60 34V135 M78 34V135 M96 34V135 M114 34V135 M132 34V135 M150 34V135 M168 34V135 M186 34V135 M204 34V135" stroke="#a5b5c0" stroke-width="1.9" stroke-opacity=".75"/>
+  <path d="M27 76H209 M27 104H209" stroke="#879aa9" stroke-width="2" stroke-opacity=".65"/>
+  <path d="M48 27H189" stroke="#76594f" stroke-width="5" stroke-linecap="round"/>
+  <rect x="101" y="94" width="37" height="44" rx="6" fill="#dfc6b8" stroke="#b6948b" stroke-width="2"/>
+  <circle cx="130" cy="113" r="2.5" fill="#76594f"/>
+  <path d="M63 50q10 -14 20 0 M155 52q10 -13 20 0" stroke="#d1b7ab" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="190" cy="21" r="11" fill="#edf2f5" stroke="#879aa9" stroke-width="2"/><path d="M190 15v12M184 21h12" stroke="#486176" stroke-width="2"/>
+</svg></div>
+    <div class="custom-cage-copy"><span>BRING YOUR OWN CAGE</span><strong>把熟悉的家一起帶來</strong><small>自備籠具・依尺寸個別報價</small></div>
+    <span class="photo-tag">ROOM · 04</span>
+  </div>
+  <div class="room-info">
+    <div class="room-top"><div><h3 class="room-title">自備籠</h3><div class="room-meta">大白鼠・蜜袋鼯</div></div><div class="room-price custom-cage-quote">LINE 詢問報價<small>依籠具尺寸及條件評估</small></div></div>
+    <div class="room-size"><strong>籠具尺寸：</strong>請提供實際長、寬、高（cm）及照片</div>
+    <div class="custom-cage-note"><strong>費用需事先確認</strong>｜請透過 LINE 傳送籠具尺寸與照片，由壹伍評估接待條件並提供報價。</div>
+    <details class="spec-details"><summary>查看自備籠入住提醒</summary>
+      <div class="spec-content"><ul class="feature-list">
+        <li><i class="fas fa-ruler-combined" aria-hidden="true"></i><span><strong>請提供尺寸：</strong>實際長、寬、高（公分）及籠具外觀照片，以利評估。</span></li>
+        <li><i class="fas fa-comment-dots" aria-hidden="true"></i><span><strong>報價方式：</strong>依籠具尺寸、物種及住宿需求，透過 LINE 確認每日費用。</span></li>
+        <li><i class="fas fa-shield-alt" aria-hidden="true"></i><span><strong>住宿安排：</strong>須先確認籠具是否適用與可否接待，再進行預約。</span></li>
+      </ul><div class="alert-box"><div><strong>入住前請先聯絡壹伍</strong><ul>
+        <li>將依大白鼠或蜜袋鼯的生活習性評估籠具是否適合住宿。</li>
+        <li>自備籠價格不套用倉鼠／刺蝟的固定尺寸價目表；以 LINE 個別報價為準。</li>
+      </ul></div></div></div>
+    </details>
+    <div class="room-bottom-links"><a class="room-book quote-cta" href="https://line.me/R/ti/p/@903dmtve" target="_blank" rel="noopener noreferrer">LINE 詢問報價 ↗</a><a class="quote-book-later" href="https://liff.line.me/2011847868-fsmJNfk2" target="_blank" rel="noopener noreferrer">確認報價後線上預約 ↗</a></div>
+  </div>
+</article>
 </div>
 </section>
 <section aria-labelledby="heading-section-other" class="category-section" id="section-other"><div class="section-intro"><div><span class="eyebrow">OTHER EXOTIC PET CARE</span><h2 id="heading-section-other">其他物種與客製照護</h2><p>若有特殊物種、照護或設備需求，請在預約前透過 LINE 洽詢評估。</p></div><div class="section-count"><strong>06</strong><span>0 種房型</span></div></div>
