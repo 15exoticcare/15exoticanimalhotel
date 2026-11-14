@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant-TW">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>壹伍非犬貓旅宿｜新北泰山兔子住宿、天竺鼠寄宿與特寵旅館</title>
-<meta content="壹伍非犬貓旅宿位於新北市泰山區，鄰近新莊、五股與林口，提供兔子住宿、天竺鼠寄宿、鸚鵡及其他特殊寵物住宿照護。具約10年特寵照護相關經驗，提供每日近況回報，歡迎台北市與新北市飼主預約參觀。" name="description"/>
+<meta content="壹伍非犬貓旅宿位於新北市泰山區，鄰近新莊、五股與林口，提供兔子住宿、天竺鼠寄宿、龍貓及其他特殊寵物住宿照護。具約10年特寵照護相關經驗，提供每日近況回報，歡迎台北市與新北市飼主預約參觀。" name="description"/>
 <meta content="index,follow,max-image-preview:large" name="robots"/>
 <link href="https://www.15exoticanimalhotel.com.tw/" rel="canonical"/>
 <link href="favicon.png" rel="icon" type="image/png"/>
@@ -39,7 +38,7 @@
   "@type":"WebPage",
   "name":"壹伍非犬貓旅宿",
   "url":"https://www.15exoticanimalhotel.com.tw/",
-  "description":"壹伍非犬貓旅宿位於新北市泰山區，提供兔子住宿、天竺鼠寄宿、鸚鵡及其他特殊寵物住宿照護。",
+  "description":"壹伍非犬貓旅宿位於新北市泰山區，提供兔子住宿、天竺鼠寄宿、龍貓及其他特殊寵物住宿照護。",
   "inLanguage":"zh-Hant-TW"
 }
 </script>
@@ -54,7 +53,7 @@
   "logo":"https://www.15exoticanimalhotel.com.tw/favicon.png",
   "image":"https://www.15exoticanimalhotel.com.tw/og-image.jpg",
 
-  "description":"位於新北市泰山區的特殊寵物旅宿，提供兔子住宿、天竺鼠寄宿、鸚鵡及其他非犬貓住宿照護。",
+  "description":"位於新北市泰山區的特殊寵物旅宿，提供兔子住宿、天竺鼠寄宿、龍貓及其他非犬貓住宿照護。",
 
   "address":{
     "@type":"PostalAddress",
@@ -246,15 +245,27 @@
 @media(max-width:1200px){.home-header-consult{display:none}}
 @media(max-width:640px){.home-hero-line{background:#fff;color:#486176!important}}
 
+
+/* 僅加強倉鼠・刺蝟卡片的可點擊提示，不影響其他首頁卡片 */
+.room-card-landing{display:block;cursor:pointer;position:relative;color:inherit;text-decoration:none}
+.room-card-landing:focus-visible{outline:3px solid var(--bluegray-deep);outline-offset:5px}
+.room-card-landing .room-click-hint{position:absolute;top:14px;right:14px;padding:8px 12px;border-radius:999px;background:#76594f;color:#fff;font-size:11px;line-height:1.35;font-weight:800;box-shadow:0 5px 16px rgba(61,42,33,.22);letter-spacing:.02em}
+.room-card-landing .room-bottom{flex-wrap:wrap}
+.room-card-landing .room-page-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#76594f;color:#fff;border-radius:999px;padding:10px 14px;white-space:nowrap;font-size:12px;font-weight:800;line-height:1.3;transition:background .2s,transform .2s,box-shadow .2s}
+.room-card-landing:hover .room-page-cta,.room-card-landing:focus-visible .room-page-cta{background:#5d473f;box-shadow:0 6px 15px rgba(61,42,33,.17)}
+.room-card-landing:hover .room-page-cta span{transform:translate(2px,-2px)}
+.room-card-landing .room-page-cta span{transition:transform .2s}
+@media(max-width:640px){.room-card-landing .room-click-hint{top:12px;right:12px;font-size:11px}.room-card-landing .room-info p{min-height:0}}
+@media(prefers-reduced-motion:reduce){.room-card-landing .room-page-cta,.room-card-landing .room-page-cta span{transition:none}}
 </style></head>
 <body id="top">
 <!-- 2027春節資訊入口：連結既有官方條例，不在首頁重述容易變動的限制 -->
 <div class="top-note"><div class="wrap"><span>✳ 2027 農曆春節住宿資訊・房價與入住規範</span><a href="spring-2027.html">查看春節專屬公告 ↗</a></div></div>
 <header class="site-header"><div class="wrap header-inner">
 <a aria-label="壹伍非犬貓旅宿首頁" class="brand" href="index.html"><img alt="壹伍品牌標誌" class="brand-symbol" height="48" src="image_6.png" width="48"/><span><span class="brand-title">壹伍非犬貓旅宿</span><span class="brand-caption" style="display:block">15 EXOTIC ANIMAL HOTEL</span></span></a>
-<nav aria-label="主要導覽" class="desktop-links"><a href="price.html">住宿房型</a><a href="#features">照護特色</a><a href="#special-care">特殊照護</a><a href="#gallery">住宿日常</a><a href="rules.html">入住須知</a><a href="care.html">兔子住宿指南</a><a href="shop.html">特寵選物</a><a class="nav-island" href="https://island.15exoticanimalhotel.com.tw/" rel="noopener noreferrer" target="_blank">小知識莊園</a></nav>
+<nav aria-label="主要導覽" class="desktop-links"><a href="price.html">住宿房型</a><a href="#features">照護特色</a><a href="#special-care">特殊照護</a><a href="#gallery">住宿日常</a><a href="rules.html">入住須知</a><a href="care.html">兔子住宿指南</a><a href="shop.html">特寵選物</a><a class="nav-island" href="https://island.15exoticanimalhotel.com.tw/" rel="noopener noreferrer" target="_blank">探索生態島</a></nav>
 <div class="header-actions"><a class="btn btn-primary" href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">立即線上預約 ↗</a><a class="home-header-consult" href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 諮詢</a><button aria-controls="mobile-menu" aria-expanded="false" aria-label="開啟選單" class="menu-toggle" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div>
-</div><nav aria-label="手機選單" class="mobile-menu" id="mobile-menu"><a href="price.html">住宿房型與房價</a><a href="#features">照護特色</a><a href="#special-care">特殊照護服務</a><a href="#gallery">住宿日常</a><a href="#about">關於壹伍</a><a href="price.html">完整房型介紹</a><a href="rules.html">入住須知</a><a href="spring-2027.html">2027 春節住宿公告</a><a href="care.html">兔子住宿與照護指南</a><a href="shop.html">特寵選物</a><a class="mobile-island-link" href="https://island.15exoticanimalhotel.com.tw/" rel="noopener noreferrer" target="_blank">探索小知識莊園</a><a href="#contact">聯絡與預約</a><a href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">線上預約住宿 ↗</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 官方諮詢 ↗</a></nav></header>
+</div><nav aria-label="手機選單" class="mobile-menu" id="mobile-menu"><a href="price.html">住宿房型與房價</a><a href="#features">照護特色</a><a href="#special-care">特殊照護服務</a><a href="#gallery">住宿日常</a><a href="#about">關於壹伍</a><a href="price.html">完整房型介紹</a><a href="rules.html">入住須知</a><a href="spring-2027.html">2027 春節住宿公告</a><a href="care.html">兔子住宿與照護指南</a><a href="shop.html">特寵選物</a><a class="mobile-island-link" href="https://island.15exoticanimalhotel.com.tw/" rel="noopener noreferrer" target="_blank">🌿 探索壹伍生態島（互動圖鑑）</a><a href="#contact">聯絡與預約</a><a href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">線上預約住宿 ↗</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 官方諮詢 ↗</a></nav></header>
 <main>
 <section aria-labelledby="hero-title" class="hero"><div class="wrap hero-grid"><div class="hero-copy">
 <div class="hero-eyebrow">NEW TAIPEI · TAISHAN · EXOTIC PET HOTEL</div>
@@ -271,9 +282,9 @@
 </div></div>
 <section class="rooms section-space" id="rooms"><div class="wrap"><div class="section-head"><div><div class="eyebrow">ROOMS &amp; STAYS</div><h2 class="headline">為每一種小小旅客，<br/>準備剛剛好的住宿空間。</h2><p class="subhead">從草食小動物到鸚鵡與其他特寵，依個別需求選擇合適房型。下方為一般住宿起價，實際以房型頁公告為準。</p></div><a class="link-arrow" href="price.html">查看全部房型與收費 <span aria-hidden="true">↗</span></a></div>
 <div class="room-cards">
-<article class="room-card"><div class="room-image"><img alt="兔子與天竺鼠適用的住宿環境" height="360" loading="lazy" src="Z6.jpg" width="460"/><span class="room-pill">RABBIT &amp; GUINEA PIG</span></div><div class="room-info"><h3>兔子・天竺鼠・龍貓</h3><p>標準、舒適加大、豪華與別墅等房型，依個體需求安排住宿。</p><div class="room-bottom"><div class="room-price"><small>NT$ </small>450 <small>起／日</small></div><a href="price.html#section-rabbit">查看房型 ↗</a></div></div></article>
-<article class="room-card"><div class="room-image"><img alt="狐獴與雪貂住宿房型展示" height="360" loading="lazy" src="N2.jpg" width="460"/><span class="room-pill">FERRET &amp; MEERKAT STAY</span></div><div class="room-info"><h3>狐獴・雪貂</h3><p>獨立住宿類別，房型尺寸同樣舒適，依物種習性與生活需求安排住宿。</p><div class="room-bottom"><div class="room-price"><small>NT$ </small>450 <small>起／日</small></div><a href="price.html#section-ferret">查看房型 ↗</a></div></div></article>
-<article class="room-card"><div class="room-image"><img alt="倉鼠與小型特寵住宿房型" height="360" loading="lazy" src="Z2.jpg" width="460"/><span class="room-pill">SMALL PET STAY</span></div><div class="room-info"><h3>倉鼠・刺蝟等小型特寵</h3><p>另有蜜袋鼯、雪貂、狐獴等住宿選項，請依物種確認房型。</p><div class="room-bottom"><div class="room-price"><small>NT$ </small>250 <small>起／日</small></div><a href="price.html#section-hamster">查看房型 ↗</a></div></div></article>
+<a aria-label="點擊查看兔子、天竺鼠與龍貓住宿專頁：房型、價格與專業照護" class="room-card room-card-landing" href="care.html"><div class="room-image"><img alt="兔子與天竺鼠適用的住宿環境" height="360" loading="lazy" src="Z6.jpg" width="460"/><span class="room-pill">RABBIT &amp; GUINEA PIG</span><span aria-hidden="true" class="room-click-hint">點擊查看專頁 ↗</span></div><div class="room-info"><h3>兔子・天竺鼠・龍貓</h3><p>標準、舒適加大、豪華與別墅等房型，依個體需求安排住宿。</p><div class="room-bottom"><div class="room-price"><small>NT$ </small>450 <small>起／日</small></div><span class="room-page-cta">查看住宿專頁 <span aria-hidden="true">↗</span></span></div></div></a>
+<a aria-label="點擊查看狐獴與雪貂住宿專頁：房型、價格與專業照護" class="room-card room-card-landing" href="ferret-meerkat.html"><div class="room-image"><img alt="狐獴與雪貂住宿房型展示" height="360" loading="lazy" src="N2.jpg" width="460"/><span class="room-pill">FERRET &amp; MEERKAT STAY</span><span aria-hidden="true" class="room-click-hint">點擊查看專頁 ↗</span></div><div class="room-info"><h3>狐獴・雪貂</h3><p>獨立住宿類別，房型尺寸同樣舒適，依物種習性與生活需求安排住宿。</p><div class="room-bottom"><div class="room-price"><small>NT$ </small>450 <small>起／日</small></div><span class="room-page-cta">查看住宿專頁 <span aria-hidden="true">↗</span></span></div></div></a>
+<a class="room-card room-card-landing" href="hamster.html" aria-label="點擊查看倉鼠與刺蝟住宿專頁：房型價格、自備籠與特殊照護"><div class="room-image"><img alt="壹伍倉鼠與刺蝟住宿房型實景，點擊查看住宿專頁" height="360" loading="lazy" src="Z2.jpg" width="460"/><span class="room-pill">HAMSTER &amp; HEDGEHOG</span><span class="room-click-hint" aria-hidden="true">點擊查看專頁 ↗</span></div><div class="room-info"><h3>倉鼠・刺蝟住宿</h3><p>館內標準房 250 元起、自備籠 200 元起；了解倉鼠與刺蝟的不同設備、餐食和特殊照護。</p><div class="room-bottom"><div class="room-price"><small>館內 NT$ </small>250 <small>起／日</small></div><span class="room-page-cta">查看住宿專頁 <span aria-hidden="true">↗</span></span></div></div></a>
 </div><div class="species-row"><strong>更多住宿物種</strong><span>鸚鵡</span><span>蜜袋鼯</span><span>大白鼠</span><span>刺蝟</span><a class="link-arrow" href="price.html">完整列表 ↗</a></div>
 </div></section>
 <section class="features section-space" id="features"><div class="wrap feature-layout"><div class="feature-intro"><div class="eyebrow">THE 15 CARE STANDARD</div><h2 class="headline">安心不只是一句話，<br/>而是每一天的照護細節。</h2><p class="subhead">專業的照顧不是把每位寶貝當成一模一樣。飲食、活動、健康觀察到住宿回報，我們重視各自的生活節奏。</p><a class="link-arrow" href="care.html">了解兔子住宿與照護指南 <span aria-hidden="true">↗</span></a></div><div class="feature-grid">
@@ -313,23 +324,23 @@
 <section class="eco-feature section-space" id="eco-island" aria-labelledby="eco-island-title">
  <div class="wrap eco-feature-grid">
   <div class="eco-feature-visual">
-   <a class="eco-visual-link" href="https://island.15exoticanimalhotel.com.tw/" target="_blank" rel="noopener noreferrer" aria-label="開啟壹伍特寵知識莊園互動探索網站（另開新視窗）">
-    <img src="eco-island-preview.webp" alt="壹伍特寵知識莊園實際互動地圖畫面，呈現中央旅宿、立體微縮動物生活區與蜿蜒小徑" width="937" height="618" loading="lazy" decoding="async"/>
-    <span class="eco-preview-label">壹伍特寵知識莊園 · 互動探索世界</span>
+   <a class="eco-visual-link" href="https://island.15exoticanimalhotel.com.tw/" target="_blank" rel="noopener noreferrer" aria-label="開啟壹伍生態島互動探索網站（另開新視窗）">
+    <img src="eco-island-preview.webp" alt="壹伍生態島實際互動地圖畫面，呈現中央旅宿、立體微縮動物生活區與蜿蜒小徑" width="937" height="618" loading="lazy" decoding="async"/>
+    <span class="eco-preview-label">壹伍生態島 · 互動探索世界</span>
     <span class="eco-visual-hint" aria-hidden="true">探索地圖 <span>↗</span></span>
    </a>
    <div class="eco-visual-caption"><span class="eco-caption-dot" aria-hidden="true"></span>非實際住宿場景</div>
   </div>
   <div class="eco-feature-copy">
    <div class="eco-kicker"><span class="eco-kicker-icon" aria-hidden="true">✦</span> EXPLORE THE 15 LITTLE WORLD</div>
-   <h2 class="headline" id="eco-island-title">走進壹伍<br/><span>特寵小知識莊園</span></h2>
-   <p class="eco-lead">跟著壹伍的保母，一起探索九大特寵生活區、尋找七種隱藏彩蛋，收集16種動物圖鑑，在可愛的立體世界中認識動物的小知識。</p>
-   <div class="eco-feature-stats" aria-label="莊園探索內容">
+   <h2 class="headline" id="eco-island-title">不只認識壹伍，<br/><span>也認識每一種特別。</span></h2>
+   <p class="eco-lead">走進壹伍生態島，跟著小小保母漫遊可愛的立體動物世界。點擊動物、發現有趣知識，還能收集自己的探索圖鑑。</p>
+   <div class="eco-feature-stats" aria-label="生態島探索內容">
     <div><strong>09<span>種</span></strong><small>特寵生活區</small></div>
     <div><strong>07<span>種</span></strong><small>驚喜探索彩蛋</small></div>
     <div><strong>16<span>種</span></strong><small>動物探索圖鑑</small></div>
    </div>
-   <a class="btn eco-feature-button" href="https://island.15exoticanimalhotel.com.tw/" target="_blank" rel="noopener noreferrer">開始探索小知識莊園 <span aria-hidden="true">↗</span></a>
+   <a class="btn eco-feature-button" href="https://island.15exoticanimalhotel.com.tw/" target="_blank" rel="noopener noreferrer">開始探索壹伍生態島 <span aria-hidden="true">↗</span></a>
    <p class="eco-feature-note">自由探索・認識動物・收集圖鑑　<span aria-hidden="true">✦</span>　免費開放</p>
   </div>
  </div>
@@ -382,7 +393,7 @@
 </div></div></section>
 <section class="contact" id="contact"><div class="wrap contact-layout"><div><div class="eyebrow light">YOUR NEXT LITTLE GETAWAY</div><h2 class="headline">期待在壹伍，<br/>認識你家的小小旅客。</h2><p>已準備好預約？可直接進入線上表單選擇日期與房型。若需特殊照護評估、參觀或其他問題，請使用 LINE 官方諮詢。</p><div class="contact-actions"><a class="btn btn-forest" href="https://liff.line.me/2011847868-fsmJNfk2" rel="noopener noreferrer" target="_blank">進入預約表單 ↗</a><a class="btn btn-light" href="https://line.me/R/ti/p/@903dmtve" rel="noopener noreferrer" target="_blank">LINE 官方諮詢 ↗</a><a class="btn btn-light" href="rules.html">查看入住須知 ↗</a></div></div><div class="contact-info"><dl><div><dt>ADDRESS｜位置</dt><dd>新北市泰山區莊泰路 1627 號 1 樓<br/><small>鄰近新莊、五股、林口，歡迎雙北飼主預約</small></dd></div><div><dt>OPEN HOURS｜接待時段</dt><dd>週一、週二、週五：13:00–17:00／18:00–20:00<br/>週六、週日：11:00–17:00／18:00–20:00<br/><small>週三、週四公休；公休仍可預約住退宿</small></dd></div><div><dt>GOOGLE MAPS｜路線</dt><dd><a href="https://maps.app.goo.gl/1NyjJX9GdWeJw37p8" rel="noopener" target="_blank">開啟 Google 地圖導航 ↗</a></dd></div><div><dt>EMAIL｜聯絡</dt><dd><a href="mailto:15exoticcare@gmail.com">15exoticcare@gmail.com</a></dd></div></dl></div></div></section>
 </main>
-<footer class="footer"><div class="wrap"><div class="footer-main"><div><h2>壹伍非犬貓旅宿</h2><p>15 EXOTIC ANIMAL HOTEL<br/>每個特別的寶貝，都值得被溫柔照顧。</p></div><nav aria-label="頁尾導覽" class="footer-links"><a href="price.html">房型與收費</a><a href="rules.html">入住須知</a><a href="#special-care">特殊照護</a><a href="spring-2027.html">2027 春節公告</a><a href="care.html">兔子住宿指南</a><a href="shop.html">特寵選物</a><a href="https://island.15exoticanimalhotel.com.tw/" rel="noopener noreferrer" target="_blank">壹伍特寵知識莊園</a><a href="https://www.facebook.com/share/1HYyhoLmah/?mibextid=wwXIfr" rel="noopener" target="_blank">Facebook</a><a href="https://www.instagram.com/15exoticcare" rel="noopener" target="_blank">Instagram</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener" target="_blank">LINE</a></nav></div><div class="footer-bottom"><span>© 2026 壹伍非犬貓旅宿・壹伍企業社｜統一編號 61245869</span><span>新北市泰山區｜特殊寵物專屬住宿照護</span></div></div></footer>
+<footer class="footer"><div class="wrap"><div class="footer-main"><div><h2>壹伍非犬貓旅宿</h2><p>15 EXOTIC ANIMAL HOTEL<br/>每個特別的寶貝，都值得被溫柔照顧。</p></div><nav aria-label="頁尾導覽" class="footer-links"><a href="price.html">房型與收費</a><a href="rules.html">入住須知</a><a href="#special-care">特殊照護</a><a href="spring-2027.html">2027 春節公告</a><a href="care.html">兔子住宿指南</a><a href="shop.html">特寵選物</a><a href="https://island.15exoticanimalhotel.com.tw/" rel="noopener noreferrer" target="_blank">壹伍生態島</a><a href="https://www.facebook.com/share/1HYyhoLmah/?mibextid=wwXIfr" rel="noopener" target="_blank">Facebook</a><a href="https://www.instagram.com/15exoticcare" rel="noopener" target="_blank">Instagram</a><a href="https://line.me/R/ti/p/@903dmtve" rel="noopener" target="_blank">LINE</a></nav></div><div class="footer-bottom"><span>© 2026 壹伍非犬貓旅宿・壹伍企業社｜統一編號 61245869</span><span>新北市泰山區｜特殊寵物專屬住宿照護</span></div></div></footer>
 <!-- 外側浮動快捷連結：電腦固定顯示，手機輕觸展開 -->
 <aside aria-label="壹伍社群與快捷連結" class="quick-dock" data-open="false" id="quick-dock">
 <nav aria-label="快速聯絡與地圖" class="quick-dock-links" id="quick-dock-links">
